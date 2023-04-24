@@ -1,0 +1,91 @@
+<nav>
+    <div class="nav-wrapper green">
+      <!-- <img src="/verdazo-front/src/assets/logo_verdazo.png" alt=""> -->
+      <span class="brand-logo">Verdazo</span>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="">Sass</a></li>
+        <li><a href="">Components</a></li>
+        <li><a href="">JavaScript</a></li>
+        <li>
+            <button (click)="logout()" class="btn waves-effect waves-light red">Log Out</button>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+  
+  <form [formGroup]="miFormulario" (ngSubmit)="create()">
+    <div class="form-group">
+        <label>Equipos Season Premiership Escocia</label>
+          <ul>
+            <li *ngFor="let team of teams"> 
+              <label>
+                <input type="checkbox" [value]="team.id"/>
+                <span>{{team.name}}</span>
+              </label>
+            </li>
+          </ul>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <input formControlName="corners" id="create" type="text" class="validate">
+        <label class="active" for="create">Corners</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <input formControlName="over1_5goals" id="create" type="text" class="validate">
+        <label class="active" for="create">Sobre 1,5 goles</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <input formControlName="yellow_cards" id="create" type="text" class="validate">
+        <label class="active" for="create">Tarjetas amarillas</label>
+      </div>
+    </div>
+
+  
+    <div class="row">
+      <div class="input-field col s6">
+        <button class="btn waves-effect waves-light blue">Crear preferencias</button>
+      </div>
+    </div>
+  </form>
+
+    <table>
+        <thead>
+          <tr>
+              <th>Equipos</th>
+              <th>Corners</th>
+              <th>+1.5 goles</th>
+              <th>Tarjetas amarillas</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let preference of preferences">
+            <td> {{preference.equipos}}</td>
+            <td>{{preference.corners}}</td>
+            <td>{{preference.over1_5goals}}</td>
+            <td>{{preference.yellow_cards}}</td>
+            <td>
+                <button class="btn waves-effect waves-light amber darken-1" > Actualizar</button>
+            </td>
+            <td>
+                <button (click)="delete(preference._id)" class="btn waves-effect waves-light red" > Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+
+
+

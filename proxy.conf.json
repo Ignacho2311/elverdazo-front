@@ -1,0 +1,13 @@
+{
+    "/api": {
+      "target": "https://api.sportmonks.com/v3",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite":{
+        "^/api":""
+      },
+      "headers":{
+        "Authorization":"5CmvZkaC2QfE3LM0OP8c1mX1uCQrN43nbHNuLSiltjWucCjLw1CBwSDsuHd4"
+      }
+    }
+  }

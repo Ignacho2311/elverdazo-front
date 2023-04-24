@@ -59,6 +59,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "options":{
+              "browserTarget": "verdazo-front:build",
+              "proxyConfig": "proxy.conf.json"
+            },
             "production": {
               "browserTarget": "verdazo-front:build:production"
             },
