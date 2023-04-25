@@ -10,7 +10,7 @@ export class SportmonksService {
   // private token= '5CmvZkaC2QfE3LM0OP8c1mX1uCQrN43nbHNuLSiltjWucCjLw1CBwSDsuHd4'
   constructor(private _http:HttpClient) { }
 
-  getTeams():Observable<TeamsBySeason>{
-    return this._http.get<TeamsBySeason>("api/football/teams/seasons/19686")
+  getTeams():Observable<any>{
+    return this._http.get<any>("api/football/teams/seasons/19686")
   }
 }

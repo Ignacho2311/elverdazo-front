@@ -11,18 +11,37 @@ import {Datum, TeamsBySeason} from 'src/app/interface/TeamsBySeason.interface'
   styleUrls: ['./home-account.component.css']
 })
 export class HomeAccountComponent implements OnInit {
-  teams:Datum[]=[]
+  
   user:any
   preferences: Array<any> = []
   miFormulario: FormGroup = this.formBuilder.group({
-    equipos: this.formBuilder.array([]),
+    equipos: [],
     corners:"",
     over1_5goals:"",
     yellow_cards:""
   })
 
+  teams:Datum[]=[]
+  miFormulario2!: FormGroup;
+  equiposSeleccionados:number[]=[]
 
-  constructor(private crudService:CrudService, private router:Router,private formBuilder:FormBuilder, private sportMonksService:SportmonksService){}
+
+  
+  constructor(private crudService:CrudService, private router:Router,private formBuilder:FormBuilder, private sportMonksService:SportmonksService){
+    this.miFormulario2= this.formBuilder.group({})
+  }
+
+  onChange(event: Event, equipo: any) {
+    const input = event.target as HTMLInputElement;
+    if (input.checked) {
+      this.equiposSeleccionados.push(equipo.id);
+    } else {
+      const index = this.equiposSeleccionados.indexOf(equipo.id);
+      if (index !== -1) {
+        this.equiposSeleccionados.splice(index, 1);
+      }
+    }
+  }
 
   ngOnInit():void{
     this.user = this.crudService.user
@@ -32,11 +51,9 @@ export class HomeAccountComponent implements OnInit {
 
     this.sportMonksService.getTeams().subscribe(data=>{
       this.teams= data.data
-      console.log(this.teams);
+      // console.log(this.teams);
     })
   }
-
-
 
   refrescarPagina() {
     // Refresca la página
@@ -44,12 +61,22 @@ export class HomeAccountComponent implements OnInit {
   }
 
   create(){
-      // console.log(this.miFormulario.value);
+      const formValue = this.miFormulario.value
+      const data = {
+        equipos :this.equiposSeleccionados,
+        corners: formValue.corners,
+        over1_5goals: formValue.over1_5goals,
+        yellow_cards:formValue.yellow_cards
+      }
       
-      this.crudService.create(this.miFormulario.value).subscribe((response)=>{
+      
+      this.crudService.create(data).subscribe((response)=>{
+      this.equiposSeleccionados = []
       this.miFormulario.reset()
+      
       this.crudService.read().subscribe((res)=>{
       this.preferences = res.preferences
+      console.log(data);
       
     })
   })
