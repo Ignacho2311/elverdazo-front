@@ -1,0 +1,95 @@
+<nav>
+    <div class="nav-wrapper green">
+      <!-- <img src="/verdazo-front/src/assets/logo_verdazo.png" alt=""> -->
+      <span class="brand-logo">Verdazo</span>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="">Sass</a></li>
+        <li><a href="">Components</a></li>
+        <li><a href="">JavaScript</a></li>
+        <li>
+            <button (click)="logout()" class="btn waves-effect waves-light red">Log Out</button>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+
+  <form [formGroup]="miFormulario" (ngSubmit)="create()">
+    <div>
+        <label>Equipos Season Premiership Escocia</label>
+          <ul>
+            <li *ngFor="let team of teams"> 
+              <label>
+                <input type="checkbox" [checked]="equiposSeleccionados.includes(team.id)" [value]="team.id" (change)="onChange($event, team)" />
+                <span>{{team.name}}</span>
+              </label>
+            </li>
+          </ul>
+    </div>
+
+
+
+    <div class="row">
+      <h6>Corners:</h6>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="corners" name="corners" type="radio" [value]="true" />
+          <span>Si</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="corners" name="corners" type="radio" [value]="false" />
+          <span>No</span>
+        </label>
+      </p>
+    </div>
+    <hr>
+    <div class="row">
+      <h6>Sobre 1,5 goals:</h6>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="over1_5goals" name="over1_5goals" type="radio" [value]="true" />
+          <span>Si</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="over1_5goals" name="over1_5goals" type="radio" [value]="false" />
+          <span>No</span>
+        </label>
+      </p>
+    </div>
+    <hr>
+    <div class="row">
+      <h6>Tarjetas Amarillas:</h6>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="yellow_cards" name="yellow_cards" type="radio" [value]="true" />
+          <span>Si</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="yellow_cards" name="yellow_cards" type="radio" [value]="false" />
+          <span>No</span>
+        </label>
+      </p>
+    </div>
+    <hr>
+
+  
+    <div class="row">
+      <div class="input-field col s6">
+        <button class="btn waves-effect waves-light blue">Crear preferencias</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+
+
+

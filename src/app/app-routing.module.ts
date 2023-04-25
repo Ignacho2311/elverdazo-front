@@ -14,9 +14,16 @@ const routes: Routes = [
     canLoad:[AuthGuard]
   },
   {
+    path:"mypreferences",
+    loadChildren:() => import("./preferences/preference.module").then(m=>m.PreferenceModule),
+    canActivate:[AuthGuard],
+    canLoad:[AuthGuard]
+  },
+  {
     path:"**",
     redirectTo:"auth"
   }
+  
 ];
 
 @NgModule({

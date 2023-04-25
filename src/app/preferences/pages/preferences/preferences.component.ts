@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CrudService } from 'src/app/services/crud.service';
 import { SportmonksService } from 'src/app/services/sportmonks.service';
-import {Datum, TeamsBySeason} from 'src/app/interface/TeamsBySeason.interface'
+import {Datum, } from 'src/app/interface/TeamsBySeason.interface'
 
 @Component({
-  selector: 'app-home-account',
-  templateUrl: './home-account.component.html',
-  styleUrls: ['./home-account.component.css']
+  selector: 'app-preferences',
+  templateUrl: './preferences.component.html',
+  styleUrls: ['./preferences.component.css']
 })
-export class HomeAccountComponent implements OnInit {
+export class PreferencesComponent implements OnInit{
   
   user:any
   preferences: Array<any> = []
@@ -80,7 +80,7 @@ export class HomeAccountComponent implements OnInit {
       console.log(data); 
     })
   })
-  
+  this.router.navigateByUrl("/home")
   
 }
 
@@ -100,5 +100,3 @@ export class HomeAccountComponent implements OnInit {
 
   
 }
-
-  

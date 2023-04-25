@@ -12,10 +12,10 @@ import Swal from 'sweetalert2';
 export class RegisterScreenComponent {
 
   miFormulario:FormGroup = this.fb.group({
-    email: ["test10@mail.com",[Validators.required, Validators.email]],
-    username: ["Test 10",[Validators.required, Validators.minLength(3)]],
-    password: ["123456",[Validators.required, Validators.minLength(6)]],
-    password2: ["123456",[Validators.required, Validators.minLength(6)]],
+    email: ["",[Validators.required, Validators.email]],
+    username: ["",[Validators.required, Validators.minLength(3)]],
+    password: ["",[Validators.required, Validators.minLength(6)]],
+    password2: ["",[Validators.required, Validators.minLength(6)]],
 
 
   })
@@ -28,7 +28,7 @@ export class RegisterScreenComponent {
       this.authService.register(this.miFormulario.value).subscribe((res)=>{ // se suscribe al servicio
         if (res === true) {
           localStorage.setItem("user",JSON.stringify(this.authService.user)) // guarda el token del usuario en el localStorage
-          this.router.navigateByUrl("/home") // lo redirije al home del usuario
+          this.router.navigateByUrl("/mypreferences") // lo redirije al home del usuario
         }else{
           Swal.fire({
             title:"Error ...",
