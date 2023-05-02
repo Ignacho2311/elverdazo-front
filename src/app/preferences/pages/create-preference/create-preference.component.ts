@@ -1,31 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Datum } from 'src/app/interface/TeamsBySeason.interface';
 import { CrudService } from 'src/app/services/crud.service';
 import { SportmonksService } from 'src/app/services/sportmonks.service';
-import {Datum, TeamsBySeason} from 'src/app/interface/TeamsBySeason.interface'
-import { Statistic } from 'src/app/interface/teamStats.interface';
 
 @Component({
-  selector: 'app-home-account',
-  templateUrl: './home-account.component.html',
-  styleUrls: ['./home-account.component.css']
+  selector: 'app-create-preference',
+  templateUrl: './create-preference.component.html',
+  styleUrls: ['./create-preference.component.css']
 })
-export class HomeAccountComponent implements OnInit {
-  
-  id_teams:Array<any>=[]
-  user:any
-  id:any
+export class CreatePreferenceComponent {
+
+    user:any
   preferences: Array<any> = []
   miFormulario: FormGroup = this.formBuilder.group({
     equipos: [],
     corners:"",
     over1_5goals:"",
-    yellow_cards:""
+    yellow_cards:"",
+    goals_conceded_minutes:"",
+    goals:"",
+    cleansheets:"",
+    draw:"",
+    lost:"",
+    goals_conceded:"",
+    win:"",
+    scoring_goal_minutes:"",
+    failed_to_score:"",
   })
 
   teams:Datum[]=[]
-  
   equiposSeleccionados:number[]=[]
 
 
@@ -50,32 +55,14 @@ export class HomeAccountComponent implements OnInit {
     this.user = this.crudService.user
     this.crudService.read().subscribe((res)=>{
       this.preferences = res.preferences
-      console.log(this.preferences);
-      this.preferences.forEach(preference=>{
-        this.id_teams.push(...preference.equipos)
-      })
+      console.log(this.preferences.length);
     })
     
-    
+
     this.sportMonksService.getTeams().subscribe(data=>{
       this.teams= data.data
-      console.log(this.teams);
     })
-
-    
   }
-
-  // mostrarEquipos(){
-  //   this.crudService.read().subscribe((res)=>{
-  //     this.preferences = res.preferences
-  //     console.log(this.preferences);
-  //     this.preferences.forEach(preference=>{
-  //       preference.equipos.forEach((equipo:any)=>{
-  //         console.log(equipo);
-  //       })
-  //     })
-  //   })
-  // }
 
   refrescarPagina() {
     // Refresca la página
@@ -88,7 +75,16 @@ export class HomeAccountComponent implements OnInit {
         equipos :this.equiposSeleccionados,
         corners: formValue.corners,
         over1_5goals: formValue.over1_5goals,
-        yellow_cards:formValue.yellow_cards
+        yellow_cards:formValue.yellow_cards,
+        goals_conceded_minutes:formValue.goals_conceded_minutes,
+        goals:formValue.goals,
+        cleansheets:formValue.cleansheets,
+        draw:formValue.draw,
+        lost:formValue.lost,
+        goals_conceded:formValue.goals_conceded,
+        win:formValue.win,
+        scoring_goal_minutes:formValue.scoring_goal_minutes,
+        failed_to_score:formValue.failed_to_score,
       }
       
       
@@ -101,7 +97,7 @@ export class HomeAccountComponent implements OnInit {
       console.log(data); 
     })
   })
-  
+  this.router.navigateByUrl("/mypreferences")
   
 }
 
@@ -119,7 +115,5 @@ export class HomeAccountComponent implements OnInit {
     this.refrescarPagina()
   }
 
-  
-}
 
-  
+}

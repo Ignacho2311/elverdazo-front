@@ -1,22 +1,86 @@
-<nav>
-    <div class="nav-wrapper green">
-      <!-- <img src="/verdazo-front/src/assets/logo_verdazo.png" alt=""> -->
-      <span class="brand-logo">Verdazo</span>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="">Sass</a></li>
-        <li><a href="">Components</a></li>
-        <li><a href="">JavaScript</a></li>
-        <li>
-            <button (click)="logout()" class="btn waves-effect waves-light red">Log Out</button>
-        </li>
-      </ul>
-    </div>
-</nav>
+
 
 
 <div class="container">
+  <nav>
+    <div class="nav-wrapper green">
+      <!-- <img src="/verdazo-front/src/assets/logo_verdazo.png" alt=""> -->
+      <span class="brand-logo center">Verdazo</span>
+      <ul id="nav-mobile" class="center hide-on-med-and-down">
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/mypreferences">Mis preferencias</a></li>
+        <li><a routerLink="/teams">Equipos</a></li>
+        <li><a routerLink="/news">Noticias</a></li>
+      </ul>
 
-  <form [formGroup]="miFormulario" (ngSubmit)="create()">
+    </div>
+  </nav>
+
+  <table>
+        <thead>
+          <tr>
+              <th>Equipos</th>
+              <th>Corners</th>
+              <th>+1.5 goles</th>
+              <th>Tarjetas amarillas</th>
+              <th>Minuto goles concedidos</th>
+              <th>Goles</th>
+              <th>Porteria en 0</th>
+              <th>Empates</th>
+              <th>Derrotas</th>
+              <th>Goles concedidos</th>
+              <th>Ganados</th>
+              <th>R. M. Goles anotados </th>
+              <th>Sin Anotar</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let preference of preferences">
+            <td> {{preference.equipos}}</td>
+            <td>{{preference.corners}}</td>
+            <td>{{preference.over1_5goals}}</td>
+            <td>{{preference.yellow_cards}}</td>
+            <td>{{preference.goals_conceded_minutes}}</td>
+            <td>{{preference.goals}}</td>
+            <td>{{preference.cleansheets}}</td>
+            <td>{{preference.draw}}</td>
+            <td>{{preference.lost}}</td>
+            <td>{{preference.goals_conceded}}</td>
+            <td>{{preference.win}}</td>
+            <td>{{preference.scoring_goal_minutes}}</td>
+            <td>{{preference.failed_to_score}}</td>
+            <td>
+                <button class="btn waves-effect waves-light amber darken-1" > Actualizar</button>
+            </td>
+            <td>
+                <button (click)="delete(preference._id)" class="btn waves-effect waves-light red" > Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button class="btn waves-effect waves-light blue" routerLink="/mypreferences/create-preference" > Crear preferencia</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <form [formGroup]="miFormulario" (ngSubmit)="create()">
+    <h1> Escoja sus preferencias</h1>
     <div>
         <label>Equipos Season Premiership Escocia</label>
           <ul>
@@ -79,6 +143,151 @@
       </p>
     </div>
     <hr>
+    <div class="row">
+      <h6>Rango de minutos de goles concedidos por el equipo:</h6>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="goals_conceded_minutes" name="goals_conceded_minutes" type="radio" [value]="true" />
+          <span>Si</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="goals_conceded_minutes" name="goals_conceded_minutes" type="radio" [value]="false" />
+          <span>No</span>
+        </label>
+      </p>
+    </div>
+    <hr>
+    <div class="row">
+      <h6>Goles del equipo:</h6>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="goals" name="goals" type="radio" [value]="true" />
+          <span>Si</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="goals" name="goals" type="radio" [value]="false" />
+          <span>No</span>
+        </label>
+      </p>
+    </div>
+    <hr>
+    <div class="row">
+      <h6>Porteria en 0: </h6>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="cleansheets" name="cleansheets" type="radio" [value]="true" />
+          <span>Si</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="cleansheets" name="cleansheets" type="radio" [value]="false" />
+          <span>No</span>
+        </label>
+      </p>
+    </div>
+    <hr>
+    <div class="row">
+      <h6>Empates:</h6>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="draw" name="draw" type="radio" [value]="true" />
+          <span>Si</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="draw" name="draw" type="radio" [value]="false" />
+          <span>No</span>
+        </label>
+      </p>
+    </div>
+    <hr>
+    <div class="row">
+      <h6>Derrotas:</h6>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="lost" name="lost" type="radio" [value]="true" />
+          <span>Si</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="lost" name="lost" type="radio" [value]="false" />
+          <span>No</span>
+        </label>
+      </p>
+    </div>
+    <hr>
+    <div class="row">
+      <h6>goles concedidos total:</h6>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="goals_conceded" name="goals_conceded" type="radio" [value]="true" />
+          <span>Si</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="goals_conceded" name="goals_conceded" type="radio" [value]="false" />
+          <span>No</span>
+        </label>
+      </p>
+    </div>
+    <hr>
+    <div class="row">
+      <h6>Ganados:</h6>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="win" name="win" type="radio" [value]="true" />
+          <span>Si</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="win" name="win" type="radio" [value]="false" />
+          <span>No</span>
+        </label>
+      </p>
+    </div>
+    <hr>
+    <div class="row">
+      <h6>Rango minutos de goles anotados:</h6>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="scoring_goal_minutes" name="scoring_goal_minutes" type="radio" [value]="true" />
+          <span>Si</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="scoring_goal_minutes" name="scoring_goal_minutes" type="radio" [value]="false" />
+          <span>No</span>
+        </label>
+      </p>
+    </div>
+    <hr>
+    <div class="row">
+      <h6>Sin anotar :</h6>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="failed_to_score" name="failed_to_score" type="radio" [value]="true" />
+          <span>Si</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input class="with-gap" formControlName="failed_to_score" name="failed_to_score" type="radio" [value]="false" />
+          <span>No</span>
+        </label>
+      </p>
+    </div>
+    <hr>
+    
 
   
     <div class="row">
@@ -86,7 +295,7 @@
         <button class="btn waves-effect waves-light blue">Crear preferencias</button>
       </div>
     </div>
-  </form>
+  </form> -->
 
 </div>
 

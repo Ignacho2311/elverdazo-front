@@ -28,10 +28,10 @@ export class RegisterScreenComponent {
       this.authService.register(this.miFormulario.value).subscribe((res)=>{ // se suscribe al servicio
         if (res === true) {
           localStorage.setItem("user",JSON.stringify(this.authService.user)) // guarda el token del usuario en el localStorage
-          this.router.navigateByUrl("/mypreferences") // lo redirije al home del usuario
+          this.router.navigateByUrl("/mypreferences/create-preference") // lo redirije al home del usuario
         }else{
           Swal.fire({
-            title:"Error ...",
+            title:"Campos obligatorios",
             text:res,
             icon:"error"
           })
