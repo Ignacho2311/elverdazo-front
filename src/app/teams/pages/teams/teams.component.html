@@ -7,7 +7,7 @@
           <ul id="nav-mobile" class="center hide-on-med-and-down">
             <li><a routerLink="/home">Home</a></li>
             <li><a routerLink="/mypreferences">Mis preferencias</a></li>
-            <li><a routerLink="/teams">Mis Equipos</a></li>
+            <li><a routerLink="/teams">Mis equipos</a></li>
             <li><a routerLink="/news">Noticias</a></li>
           </ul>
         </div>
@@ -16,7 +16,7 @@
 
     <ul>
         <li *ngFor="let id_team of id_teams">
-          <h6>{{id_team}} </h6>
+          <h6>ID Equipo: {{id_team}} </h6>
           <button class="btn waves-effect waves-light green" (click)="getStatsByTeamId(id_team)" >Ver estadisticas</button>
         </li>
     </ul>  
@@ -30,22 +30,5 @@
     
     <button class="btn waves-effect waves-light green" (click)="grafico()" >Ver grafico</button>
     <canvas id="myChart"></canvas>
-
-    
-    
-
-
-
 </div>
 
-
-      <!-- <ul>
-        <li *ngFor="let stat of stats">
-            <span>0-15 : {{stat.value["0-15"].count}}</span><br>
-            <span>15-30 : {{stat.value["15-30"].count}}</span> <br>
-            <span>30-45 : {{stat.value["30-45"].count}}</span> <br>
-            <span>45-60 : {{stat.value["45-60"].count}}</span> <br>
-            <span>60-75 : {{stat.value["60-75"].count}}</span> <br>
-            <span>75-90 : {{stat.value["75-90"].count}}</span> <br>
-        </li>
-      </ul> -->

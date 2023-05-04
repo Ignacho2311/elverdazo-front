@@ -1,0 +1,16 @@
+fieldset{
+    border-radius: 35px;
+  }
+  
+  body {
+    background-image: url('src/assets/fondo-6.jpg');
+    background-size: cover;
+  }
+  
+  #login{
+    box-shadow: 0 0 10px rgba(5, 3, 3, 4);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    font-family: 'Rubik Dirt', cursive;
+  }
+  
