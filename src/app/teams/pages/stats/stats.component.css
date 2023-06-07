@@ -1,0 +1,69 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  width: 350px;
+  height: 350px;
+  margin: 10px;
+}
+
+.label-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.stat-card {
+  background-color: #E6F5E7;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  height: auto;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 15px;
+}
+
+.stat-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #245C33;
+}
+
+.stat-subtitle {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #245C33;
+}
+
+.btn-show-chart {
+  background-color: #32A852;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.btn-show-chart:hover {
+  background-color: #267633;
+}
+
+.canvas-chart {
+  height: 800px; /* Ajusta la altura del gráfico según tus necesidades */
+  width: 100%;
+}

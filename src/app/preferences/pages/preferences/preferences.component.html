@@ -21,7 +21,7 @@
           <tr>
               <th>Equipos</th>
               <th>Corners</th>
-              <th>+1.5 goles</th>
+              <th>Posesion de balón</th>
               <th>Tarjetas amarillas</th>
               <th>Minuto goles concedidos</th>
               <th>Goles</th>
@@ -32,6 +32,8 @@
               <th>Ganados</th>
               <th>R. M. Goles anotados </th>
               <th>Sin Anotar</th>
+              <th>Numero goles</th>
+              <th>Ambos equipos anotan</th>
               <th>Actualizar</th>
               <th>Eliminar</th>
           </tr>
@@ -40,7 +42,7 @@
           <tr *ngFor="let preference of preferences">
             <td> {{preference.equipos}}</td>
             <td>{{preference.corners}}</td>
-            <td>{{preference.over1_5goals}}</td>
+            <td>{{preference.ball_possession}}</td>
             <td>{{preference.yellow_cards}}</td>
             <td>{{preference.goals_conceded_minutes}}</td>
             <td>{{preference.goals}}</td>
@@ -51,6 +53,9 @@
             <td>{{preference.win}}</td>
             <td>{{preference.scoring_goal_minutes}}</td>
             <td>{{preference.failed_to_score}}</td>
+            <td>{{preference.number_of_goals}}</td>
+            <td>{{preference.both_teams_to_score}}</td>
+
             <td>
                 <button class="btn waves-effect waves-light amber darken-1" > Actualizar</button>
             </td>

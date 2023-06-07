@@ -5,7 +5,10 @@ import { PreferenceRoutingModule } from './preference-routing.module';
 import { PreferencesComponent } from './pages/preferences/preferences.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreatePreferenceComponent } from './pages/create-preference/create-preference.component';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import {FlexLayoutModule} from '@angular/flex-layout'
 
 @NgModule({
   declarations: [
@@ -15,7 +18,11 @@ import { CreatePreferenceComponent } from './pages/create-preference/create-pref
   imports: [
     CommonModule,
     PreferenceRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatGridListModule,
+    FlexLayoutModule
   ]
 })
 export class PreferenceModule { }

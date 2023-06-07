@@ -17,22 +17,11 @@ export class PreferencesComponent implements OnInit{
   user:any
   id:any
   preferences: Array<any> = []
-  miFormulario: FormGroup = this.formBuilder.group({
-    equipos: [],
-    corners:"",
-    over1_5goals:"",
-    yellow_cards:""
-  })
-
   teams:Datum[]=[]
   
   equiposSeleccionados:number[]=[]
-
-
   
-  constructor(private crudService:CrudService, private router:Router,private formBuilder:FormBuilder, private sportMonksService:SportmonksService){
-  
-  }
+  constructor(private crudService:CrudService, private router:Router,private formBuilder:FormBuilder, private sportMonksService:SportmonksService){}
 
   onChange(event: Event, equipo: any) {
     const input = event.target as HTMLInputElement;
@@ -61,50 +50,15 @@ export class PreferencesComponent implements OnInit{
       this.teams= data.data
       console.log(this.teams);
     })
-
-    
   }
 
-  // mostrarEquipos(){
-  //   this.crudService.read().subscribe((res)=>{
-  //     this.preferences = res.preferences
-  //     console.log(this.preferences);
-  //     this.preferences.forEach(preference=>{
-  //       preference.equipos.forEach((equipo:any)=>{
-  //         console.log(equipo);
-  //       })
-  //     })
-  //   })
-  // }
 
   refrescarPagina() {
     // Refresca la página
     location.reload();
   }
 
-  create(){
-      const formValue = this.miFormulario.value
-      const data = {
-        equipos :this.equiposSeleccionados,
-        corners: formValue.corners,
-        over1_5goals: formValue.over1_5goals,
-        yellow_cards:formValue.yellow_cards
-      }
-      
-      
-      this.crudService.create(data).subscribe((response)=>{
-      this.equiposSeleccionados = []
-      this.miFormulario.reset()
-      
-      this.crudService.read().subscribe((res)=>{
-      this.preferences = res.preferences
-      console.log(data); 
-    })
-  })
   
-  
-}
-
   delete(id:string){
     this.crudService.delete(id).subscribe(response=>{
       this.crudService.read().subscribe((res)=>{

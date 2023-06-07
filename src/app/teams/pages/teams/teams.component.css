@@ -1,0 +1,8 @@
+.titulo{
+    text-align: center;
+}
+
+.card {
+    width: 200px; /* Ajusta el ancho según tus necesidades */
+    margin: 10px; /* Ajusta los márgenes según tus necesidades */
+  }

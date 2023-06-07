@@ -1,16 +1,86 @@
-fieldset{
-    border-radius: 35px;
-  }
-  
-  body {
-    background-image: url('src/assets/fondo-6.jpg');
-    background-size: cover;
-  }
-  
-  #login{
-    box-shadow: 0 0 10px rgba(5, 3, 3, 4);
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 30px;
-    font-family: 'Rubik Dirt', cursive;
-  }
-  
+body {
+  background-color: #f2f9f0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo-img {
+  width: 200px;
+  height: 100px;
+  border-radius: 50%;
+  filter: contrast(5.0) saturate(1.0) brightness(0.9);
+}
+
+.login-form {
+  width: 300px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.login-title {
+  color: #4caf50;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.input-field {
+  margin-bottom: 1.5rem;
+}
+
+input[type="email"],
+input[type="password"] {
+  color: #333;
+  border: 1px solid #c8e6c9;
+  border-radius: 4px;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+label {
+  color: #333;
+  font-weight: bold;
+}
+
+.helper-text {
+  color: #999;
+}
+
+.btn {
+  background-color: #4caf50;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Opcional, si quieres centrar verticalmente el texto */
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.register-link a {
+  color: #333;
+  text-decoration: underline;
+}
+
+.register-link a:hover {
+  color: #4caf50;
+}

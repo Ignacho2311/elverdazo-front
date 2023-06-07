@@ -4,6 +4,7 @@ import { CrudService } from 'src/app/services/crud.service';
 import { SportmonksService } from 'src/app/services/sportmonks.service';
 import Chart from 'chart.js/auto'
 
+
 @Component({
   selector: 'app-teams',
   templateUrl: './teams.component.html',
@@ -14,17 +15,15 @@ export class TeamsComponent implements OnInit {
     preferences: Array<any> = []
     id_teams:Array<any> = []
     stats:any
+    dataEquipos: any[] = [];
+    equiposFavoritos:any[]= []
+    idsEquiposFavoritos:Array<any> = []
 
     constructor(private crudService:CrudService, private router:Router, private sportMonksService:SportmonksService ){}
 
     
     ngOnInit():void{
-      this.user = this.crudService.user
-      this.crudService.read().subscribe((res)=>{
-        res.preferences.forEach((preference:any)=>{
-          this.id_teams.push(...preference.equipos)
-        })
-      })
+      this.obtenerEquiposFavoritos()
     }
 
     refrescarPagina() {
@@ -39,10 +38,11 @@ export class TeamsComponent implements OnInit {
     }
 
     getStatsByTeamId(value:any){
-      this.sportMonksService.getTeamsById(value).subscribe((res)=>{
-        this.stats = res.data.statistics[0].details
-        console.log(this.stats);
-      })
+      this.router.navigate(['/teams/stats', value]);
+      // this.sportMonksService.getTeamsById(value).subscribe((res)=>{
+      //   this.stats = res.data.statistics[0].details
+      //   console.log(this.stats);
+      // })
     }
 
     grafico():void{
@@ -87,5 +87,21 @@ export class TeamsComponent implements OnInit {
           }
         });
       }
+  }
+
+  obtenerEquiposFavoritos(){
+    this.crudService.read().subscribe((res)=>{
+      res.preferences.forEach((preference:any)=>{
+        this.idsEquiposFavoritos.push(...preference.equipos)
+        //console.log(this.idsEquiposFavoritos)
+      })
+    })
+    this.sportMonksService.getTeams().subscribe((data)=>{
+      this.dataEquipos= data.data
+      //console.log(this.dataEquipos);
+
+      this.equiposFavoritos= this.dataEquipos.filter((equipo)=> this.idsEquiposFavoritos.includes(equipo.id))
+      //console.log(this.equiposFavoritos);
+    })
   }
 }

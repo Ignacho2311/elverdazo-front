@@ -6,19 +6,19 @@
     <div class="nav-wrapper green">
       <!-- <img src="/verdazo-front/src/assets/logo_verdazo.png" alt=""> -->
       <span class="brand-logo center">Verdazo</span>
-      <ul id="nav-mobile" class="center hide-on-med-and-down">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a routerLink="/home">Home</a></li>
         <li><a routerLink="/mypreferences">Mis preferencias</a></li>
         <li><a routerLink="/teams">Mis equipos</a></li>
         <li><a routerLink="/news">Noticias</a></li>
-      </ul>
-      <button (click)="logout()" class="btn waves-effect waves-light red">Log Out</button>
-
+        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down"><li><button (click)="logout()" class="btn waves-effect waves-light red logout-btn">Log Out</button></li></ul>
     </div>
   </nav>
 
   <h3>Próximos partidos : (En desarrollo) </h3>
 </div>
+
 
 
 

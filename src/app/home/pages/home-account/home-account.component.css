@@ -1,2 +1,9 @@
-
+.btn.logout-btn {
+    background-color: #f44336;
+    color: #ffffff;
+  }
+  
+  .btn.logout-btn:hover {
+    background-color: #e53935;
+  }
   

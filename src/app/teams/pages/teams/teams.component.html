@@ -14,12 +14,50 @@
     </nav>
 
 
-    <ul>
-        <li *ngFor="let id_team of id_teams">
-          <h6>ID Equipo: {{id_team}} </h6>
-          <button class="btn waves-effect waves-light green" (click)="getStatsByTeamId(id_team)" >Ver estadisticas</button>
-        </li>
-    </ul>  
+    <mat-grid-list cols="4" rowHeight="300px">
+      <mat-grid-tile *ngFor="let equipo of equiposFavoritos">
+        <mat-card class="card">
+          <!-- Contenido de la carta -->
+          <img mat-card-image [src]="equipo.image_path" alt="Imagen del elemento">
+          <h3 class="titulo" mat-card-title>{{ equipo.name }}</h3>
+          <button class="btn waves-effect waves-light green" (click)="getStatsByTeamId(equipo.id)" >Ver estadisticas</button>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    
+    <!-- <mat-card *ngFor="let equipo of equiposFavoritos">
+      <img mat-card-image [src]="equipo.image_path" alt="Imagen del elemento">
+      <mat-card-content>
+        <h3 mat-card-title>{{ equipo.name }}</h3>
+        <button class="btn waves-effect waves-light green" (click)="getStatsByTeamId(equipo.id)" >Ver estadisticas</button>
+      </mat-card-content>
+    </mat-card> -->
+
+
+    <!-- <mat-grid-list cols="auto" rowHeight="1:1">
+      <mat-grid-tile *ngFor="let equipo of equiposFavoritos">
+        <mat-card>
+          <mat-card-header>
+            <div mat-card-avatar>
+              <img [src]="equipo.image_path" alt="Escudo del equipo">
+            </div>
+            <mat-card-title>{{ equipo.name }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list> -->
+
+    <!-- <div *ngFor="let equipo of equiposFavoritos">
+      <h2>{{equipo.name}}</h2>
+      <img [src]="equipo.image_path" alt="Escudo"> <br>
+      <button class="btn waves-effect waves-light green" (click)="getStatsByTeamId(equipo.id)" >Ver estadisticas</button>
+    </div> -->
+
+  
+
+    <hr>
       <h4>Details:</h4>
     <div *ngFor="let stat of stats">
       <h5>Value:</h5>

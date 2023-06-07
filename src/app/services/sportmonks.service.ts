@@ -13,6 +13,10 @@ export class SportmonksService {
     return this._http.get<any>("api/football/teams/seasons/19686")
   }
 
+  getTeamForPreferences():Observable<any>{
+    return this._http.get<any>(`api/football/teams/85?include=statistics.details.type&filters=teamStatisticSeasons:19686`)
+  }
+
   getTeamsById(id:any):Observable<any>{
     return this._http.get<any>(`api/football/teams/${id}?include=statistics.details.type&filters=teamStatisticSeasons:19686`)
   }

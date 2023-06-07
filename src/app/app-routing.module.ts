@@ -22,10 +22,14 @@ const routes: Routes = [
   {
     path:"news",
     loadChildren:()=> import("./news/news.module").then(m=>m.NewsModule),
+    canActivate:[AuthGuard],
+    canLoad:[AuthGuard]
   },
   {
     path:"teams",
     loadChildren:()=> import("./teams/teams.module").then(m=>m.TeamsModule),
+    canActivate:[AuthGuard],
+    canLoad:[AuthGuard]
   },
   {
     path:"create-preference",

@@ -38,6 +38,6 @@ export class CrudService {
     const headers = {
       "x-auth-token":this.user.token
     }
-    return this.httpClient.post<any>(`${this.baseUrl}/myaccount/createpreferences/`,{equipos:value.equipos,corners:value.corners,over1_5goals:value.over1_5goals,yellow_cards:value.yellow_cards,goals_conceded_minutes:value.goals_conceded_minutes,goals:value.goals,cleansheets:value.cleansheets,draw:value.draw,lost:value.lost,goals_conceded:value.goals_conceded,win:value.win,scoring_goal_minutes:value.scoring_goal_minutes,failed_to_score:value.failed_to_score},{headers})
+    return this.httpClient.post<any>(`${this.baseUrl}/myaccount/createpreferences/`,{equipos:value.equipos,corners:value.corners,ball_possession:value['ball-possesion'],yellow_cards:value.yellowcards,goals_conceded_minutes:value['conceded-scoring-minutes'],goals:value.goals,cleansheets:value.cleansheets,draw:value['team-draws'],lost:value['team-lost'],goals_conceded:value['goals-conceded'],win:value['team-wins'],scoring_goal_minutes:value['scoring-minutes'],failed_to_score:value['failed-toscore'],number_of_goals:value['number-of-goals'],both_teams_to_score:value.btts},{headers})
   }
 }

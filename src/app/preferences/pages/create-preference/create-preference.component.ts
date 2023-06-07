@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Datum } from 'src/app/interface/TeamsBySeason.interface';
 import { CrudService } from 'src/app/services/crud.service';
 import { SportmonksService } from 'src/app/services/sportmonks.service';
+import {ReactiveFormsModule} from '@angular/forms'
 
 @Component({
   selector: 'app-create-preference',
@@ -16,21 +17,26 @@ export class CreatePreferenceComponent {
   preferences: Array<any> = []
   miFormulario: FormGroup = this.formBuilder.group({
     equipos: [],
-    corners:"",
-    over1_5goals:"",
-    yellow_cards:"",
-    goals_conceded_minutes:"",
-    goals:"",
-    cleansheets:"",
-    draw:"",
-    lost:"",
-    goals_conceded:"",
-    win:"",
-    scoring_goal_minutes:"",
-    failed_to_score:"",
+    corners:new FormControl(),
+    'ball-possession':new FormControl(false),
+    yellowcards:new FormControl(false),
+    'conceded-scoring-minutes':new FormControl(false),
+    goals:new FormControl(false),
+    cleansheets:new FormControl(false),
+    'team-draws':new FormControl(false),
+    'team-lost':new FormControl(false),
+    'goals-conceded':new FormControl(false),
+    'team-wins':new FormControl(false),
+    'scoring-minutes':new FormControl(false),
+    'failed-toscore':new FormControl(false),
+    'number-of-goals':new FormControl(false),
+    btts:new FormControl(false),
+
   })
 
   teams:Datum[]=[]
+  teamStats:any[]=[]
+
   equiposSeleccionados:number[]=[]
 
 
@@ -38,6 +44,8 @@ export class CreatePreferenceComponent {
   constructor(private crudService:CrudService, private router:Router,private formBuilder:FormBuilder, private sportMonksService:SportmonksService){
   
   }
+
+  
 
   onChange(event: Event, equipo: any) {
     const input = event.target as HTMLInputElement;
@@ -61,8 +69,45 @@ export class CreatePreferenceComponent {
 
     this.sportMonksService.getTeams().subscribe(data=>{
       this.teams= data.data
+      console.log(this.teams);
+      
+    })
+
+    this.sportMonksService.getTeamForPreferences().subscribe(data=>{
+      this.teamStats= data.data.statistics[0].details
+      console.log(this.teamStats);
+      
     })
   }
+  updateValue(event: any, controlName: string, value: number) {
+    if (event.target.checked) {
+      this.miFormulario.get(controlName)?.setValue(value);
+    } else {
+      this.miFormulario.get(controlName)?.setValue(null);
+    }
+  }
+
+
+  toggleSelection(team: any) {
+    const index = this.equiposSeleccionados.indexOf(team.id);
+    if (index === -1) {
+      this.equiposSeleccionados.push(team.id);
+    } else {
+      this.equiposSeleccionados.splice(index, 1);
+    }
+  }
+
+  
+  toggleSelection2(team: any) {
+    const index = this.teamStats.indexOf(team.id);
+    if (index === -1) {
+      this.teamStats.push(team.id);
+    } else {
+      this.teamStats.splice(index, 1);
+    }
+  }
+
+  
 
   refrescarPagina() {
     // Refresca la página
@@ -74,18 +119,21 @@ export class CreatePreferenceComponent {
       const data = {
         equipos :this.equiposSeleccionados,
         corners: formValue.corners,
-        over1_5goals: formValue.over1_5goals,
-        yellow_cards:formValue.yellow_cards,
-        goals_conceded_minutes:formValue.goals_conceded_minutes,
+        'ball-possesion': formValue['ball-possession'],
+        yellowcards:formValue.yellowcards,
+        'conceded-scoring-minutes':formValue['conceded-scoring-minutes'],
         goals:formValue.goals,
         cleansheets:formValue.cleansheets,
-        draw:formValue.draw,
-        lost:formValue.lost,
-        goals_conceded:formValue.goals_conceded,
-        win:formValue.win,
-        scoring_goal_minutes:formValue.scoring_goal_minutes,
-        failed_to_score:formValue.failed_to_score,
+        'team-draws':formValue['team-draws'],
+        'team-lost':formValue['team-lost'],
+        'goals-conceded':formValue['goals-conceded'],
+        'team-wins':formValue['team-wins'],
+        'scoring-minutes':formValue['scoring-minutes'],
+        'failed-toscore':formValue['failed-toscore'],
+        'number-of-goals':formValue['number-of-goals'],
+        btts: formValue.btts
       }
+      console.log(data);
       
       
       this.crudService.create(data).subscribe((response)=>{

@@ -1,0 +1,63 @@
+/* Estilos para las tarjetas de equipo */
+.team-card {
+  width: 230px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  margin: 0.5rem;
+  position: relative;
+}
+
+/* Estilos para la tarjeta seleccionada */
+.team-card.selected {
+  background-color: #3e8745;
+}
+
+/* Estilos para la imagen del equipo */
+.team-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Estilos para el nombre del equipo */
+.team-card .team-name {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  z-index: 1;
+}
+
+/* Estilos para el checkbox */
+.team-card .custom-checkbox {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+
+}
+
+/* Estilos para el texto del checkbox */
+.team-card .custom-checkbox span {
+  margin-left: 0.5rem;
+}
+
+/* Estilos para el hover */
+.team-card:hover {
+  background-color: #3e8745;
+  cursor: pointer;
+}
+.title-black {
+  color: black;
+}
+
