@@ -7,12 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule  } from '@angular/material/card';
 import { MatGridListModule  } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
-
+import {MatToolbarModule} from '@angular/material/toolbar'
+import {MatMenuModule} from '@angular/material/menu';
+import { NavBarComponent } from './nav-bar/nav-bar.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,9 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     MatCardModule,
     MatGridListModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

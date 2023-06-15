@@ -1,8 +1,7 @@
 
 <div class="container">
-    <nav>
+    <!-- <nav>
         <div class="nav-wrapper green">
-          <!-- <img src="/verdazo-front/src/assets/logo_verdazo.png" alt=""> -->
           <span class="brand-logo center">Verdazo</span>
           <ul id="nav-mobile" class="center hide-on-med-and-down">
             <li><a routerLink="/home">Home</a></li>
@@ -11,19 +10,21 @@
             <li><a routerLink="/news">Noticias</a></li>
           </ul>
         </div>
-    </nav>
+    </nav> -->
 
+    <h2 class="title">Mis Equipos</h2>
+    <div class="team-container" >
+      <div class="team-card" *ngFor="let equipo of equiposFavoritos">
+        <div class="team-image" [style.background-image]="'url(' + equipo.image_path + ')'"></div>
+        <div class="team-content">
+          <h3 class="team-name">{{ equipo.name }}</h3>
+          <button class="team-button" (click)="getStatsByTeamId(equipo.id)">Ver estadísticas</button>
+          <button class="team-button2"  (click)="deleteTeam(equipo.id)">Eliminar</button>
 
-    <mat-grid-list cols="4" rowHeight="300px">
-      <mat-grid-tile *ngFor="let equipo of equiposFavoritos">
-        <mat-card class="card">
-          <!-- Contenido de la carta -->
-          <img mat-card-image [src]="equipo.image_path" alt="Imagen del elemento">
-          <h3 class="titulo" mat-card-title>{{ equipo.name }}</h3>
-          <button class="btn waves-effect waves-light green" (click)="getStatsByTeamId(equipo.id)" >Ver estadisticas</button>
-        </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
+        </div>
+      </div>
+    </div>
+    
     
     <!-- <mat-card *ngFor="let equipo of equiposFavoritos">
       <img mat-card-image [src]="equipo.image_path" alt="Imagen del elemento">
@@ -54,19 +55,6 @@
       <img [src]="equipo.image_path" alt="Escudo"> <br>
       <button class="btn waves-effect waves-light green" (click)="getStatsByTeamId(equipo.id)" >Ver estadisticas</button>
     </div> -->
-
-  
-
-    <hr>
-      <h4>Details:</h4>
-    <div *ngFor="let stat of stats">
-      <h5>Value:</h5>
-      <pre>{{stat.type.name}}</pre>
-      <pre>{{ stat.value | json }}</pre>
-    </div>
-    <hr>
-    
-    <button class="btn waves-effect waves-light green" (click)="grafico()" >Ver grafico</button>
-    <canvas id="myChart"></canvas>
+    <button class="team-button stats">Agregar Equipos</button>
 </div>
 

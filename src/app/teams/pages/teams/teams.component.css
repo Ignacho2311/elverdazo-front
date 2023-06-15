@@ -1,8 +1,120 @@
-.titulo{
-    text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-.card {
-    width: 200px; /* Ajusta el ancho según tus necesidades */
-    margin: 10px; /* Ajusta los márgenes según tus necesidades */
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Cambiado de space-between a space-around */
+}
+  
+  .team-card {
+    width: 220px; /* Aumentado el ancho de la tarjeta a 220px */
+    margin: 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
   }
+  
+  .team-card:hover {
+    transform: translateY(-5px);
+    background-color: #dadada;
+  }
+  
+  .team-image {
+    width: 100%;
+    height: 150px;
+    background-size: contain; /* Cambiado a "contain" en lugar de "cover" */
+    background-position: center;
+    background-repeat: no-repeat; /* Agregado para evitar la repetición de la imagen */
+
+  }
+  
+  .team-content {
+    padding: 16px;
+  }
+  
+  .team-name {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .team-button {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #48b658;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .team-button:hover {
+    background-color: #296f20;
+  }
+
+  .team-button2 {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #fe1d08;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .team-button2:hover {
+    background-color: #850d0d;
+  }
+
+  .container {
+    background-image: url('../../../../assets/sandro-schuh-HgwY_YQ1m0w-unsplash.jpg'); /* Reemplaza 'ruta-de-la-imagen' con la ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+  }
+  
+  .add-button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .add-button:hover {
+    background-color: #45a049;
+  }
+  
+  .team-button.stats {
+    background-color: #2196f3;
+  }
+  
+  .team-button.stats:hover {
+    background-color: #1976d2;
+  }
+  
+  

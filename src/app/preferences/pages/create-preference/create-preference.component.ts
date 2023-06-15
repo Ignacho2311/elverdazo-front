@@ -38,7 +38,24 @@ export class CreatePreferenceComponent {
   teamStats:any[]=[]
 
   equiposSeleccionados:number[]=[]
-
+  translations: { [key: string]: string } = {
+    'Corners': 'Tiros de Esquina',
+    'Ball Possession %': 'Posesión balon',
+    'Yellowcards':'Tarjetas Amarillas',
+    'Conceded Scoring Minutes':'Rango de Minutos de Goles Concedidos',
+    'Goals':'Goles Anotados',
+    'Cleansheets':'Porteria en 0',
+    'Team Draws':'Empates',
+    'Team Lost': 'Derrotas',
+    'Goals Conceded':' Goles Concedidos',
+    'Team Wins':'Victorias',
+    'Scoring Minutes':'Rango de Minutos de Goles Anotados',
+    'Failed To Score':'Sin anotar Goles',
+    'Number Of Goals': 'Rango de Cantidad de Goles( +0.5, +1.5)',
+    'Both Teams To Score':'Ambos Equipos Anotan',
+    
+    // Agrega más traducciones para los otros tipos de estadísticas
+  };
 
   
   constructor(private crudService:CrudService, private router:Router,private formBuilder:FormBuilder, private sportMonksService:SportmonksService){

@@ -1,0 +1,43 @@
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to left, #88a688, #359d39);
+
+
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    /* background: linear-gradient(to right, #a4ada4, #4a9e4d); */
+    max-height: 67px; /* Ajusta el tamaño máximo del logo según tu preferencia */
+  }
+  
+    
+  .logo-container img {
+    margin-top: 25px;
+    max-height: 90px; /* Ajusta el tamaño máximo del logo según tu preferencia */
+  }
+
+  
+  .options {
+    display: flex;
+    list-style: none;
+    
+    margin: 0;
+    padding: 0;
+    margin-right: 550px; /* Ajusta el margen según tu necesidad */
+
+  }
+  
+  .options li {
+    margin-right: 10px; /* Ajusta el margen según tu necesidad */
+
+  }
+  
+  .options li a {
+    color: #ffffff; /* Ajusta el color según tu necesidad */
+    text-decoration: none;
+  }
+  

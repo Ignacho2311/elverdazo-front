@@ -55,7 +55,7 @@
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 3px;
   width: 100%;
 }
 
@@ -63,7 +63,76 @@
   background-color: #267633;
 }
 
-.canvas-chart {
-  height: 800px; /* Ajusta la altura del gráfico según tus necesidades */
-  width: 100%;
+.team-presentation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #f1f1f1;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .team-card {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  .team-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .team-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .team-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .team-stats {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .team-stat {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 16px;
+  }
+
+.icon-possession {
+  background-image: url('../../../../assets/soccer-player.png');
+  /* Otros estilos para el icono de goles */
 }
+
+.icon-corner {
+  background-image: url('../../../../assets/corner.png');
+  /* Otros estilos para el icono de posesión del balón */
+}
+
+.icon-yellow-card{
+  background-image: url('../../../../assets/yellow-card.png');
+  /* Otros estilos para el icono de tarjetas amarillas */
+}
+.team-stat-icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  margin-right: 10px;
+  /* Otros estilos adicionales si es necesario */
+}
+
+
+
+
+
+

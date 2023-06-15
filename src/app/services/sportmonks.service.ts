@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Datum } from '../interface/TeamsBySeason.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,9 @@ export class SportmonksService {
 
   getTeamsById(id:any):Observable<any>{
     return this._http.get<any>(`api/football/teams/${id}?include=statistics.details.type&filters=teamStatisticSeasons:19686`)
+  }
+
+  getTeamById(id:any):Observable<Datum>{
+    return this._http.get<Datum>(`api/football/teams/${id}`)
   }
 }

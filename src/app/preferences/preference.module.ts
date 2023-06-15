@@ -9,6 +9,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {FlexLayoutModule} from '@angular/flex-layout'
+import {MatToolbarModule} from '@angular/material/toolbar'
+import {MatMenuModule} from '@angular/material/menu'
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,10 @@ import {FlexLayoutModule} from '@angular/flex-layout'
     MatCheckboxModule,
     MatCardModule,
     MatGridListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatMenuModule
+
   ]
 })
 export class PreferenceModule { }

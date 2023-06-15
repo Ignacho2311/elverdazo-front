@@ -1,9 +1,44 @@
-.btn.logout-btn {
-    background-color: #f44336;
-    color: #ffffff;
-  }
-  
-  .btn.logout-btn:hover {
-    background-color: #e53935;
-  }
-  
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+nav {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.fixture {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.partido {
+  background-color: #f2f2f2;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+}
+
+.equipo {
+  font-weight: bold;
+}
+
+.versus {
+  font-size: 20px;
+}
+
+.fecha {
+  font-size: 14px;
+  color: #999;
+}

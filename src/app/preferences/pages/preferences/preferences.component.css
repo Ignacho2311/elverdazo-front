@@ -1,0 +1,144 @@
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #4caf50;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu .submenu-item {
+  width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.stat-card {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 0.5rem;
+  box-sizing: border-box;
+  color: black;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.stat-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.team-stat-icon {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  background-size: cover;
+  background-position: center;
+  /* Otros estilos adicionales si es necesario */
+}
+
+.icon-possession {
+  background-image: url('../../../../assets/soccer-player.png');
+  /* Otros estilos para el icono de goles */
+}
+
+.icon-corner {
+  background-image: url('../../../../assets/corner.png');
+  /* Otros estilos para el icono de posesión del balón */
+}
+
+.icon-yellow-card{
+  background-image: url('../../../../assets/yellow-card.png');
+  /* Otros estilos para el icono de tarjetas amarillas */
+}
+.icon-goal{
+  background-image: url('../../../../assets/objetivo.png');
+  /* Otros estilos para el icono de tarjetas amarillas */
+}
+.icon-win{
+  background-image: url('../../../../assets/comprobado.png');
+  /* Otros estilos para el icono de tarjetas amarillas */
+}
+.icon-lost{
+  background-image: url('../../../../assets/cancelar.png');
+  /* Otros estilos para el icono de tarjetas amarillas */
+}
+.icon-cleansheets{
+  background-image: url('../../../../assets/campo-de-futbol.png');
+  /* Otros estilos para el icono de tarjetas amarillas */
+}
+.icon-draw{
+  background-image: url('../../../../assets/signo-matematico-igual.png');
+  /* Otros estilos para el icono de tarjetas amarillas */
+}
+
+
+
+.stat-card .stat-title {
+  font-weight: bold;
+}
+
+.stat-card:hover {
+  background-color: #4caf50;
+  cursor: pointer;
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+.team-button2 {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #fe1d08;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.team-button2:hover {
+  background-color: #850d0d;
+}

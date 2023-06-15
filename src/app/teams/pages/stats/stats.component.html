@@ -1,101 +1,61 @@
-<!-- <h4>Details:</h4>
-    <div *ngFor="let stat of stats">
-      <h5>Value:</h5>
-      <pre>{{stat.type.name}}</pre>
-      <pre>{{ stat.value | json }}</pre>
-      
-    </div> -->
-      <!-- <div *ngFor="let stat of stats">
-        <pre>{{ stat.value | json }}</pre>
-      </div> -->
+      <div class="container">
+        <!-- <nav>
+          <div class="nav-wrapper green">
+            
+            <span class="brand-logo center">Verdazo</span>
+            <ul id="nav-mobile" class="center hide-on-med-and-down">
+              <li><a routerLink="/home">Home</a></li>
+              <li><a routerLink="/mypreferences">Mis preferencias</a></li>
+              <li><a routerLink="/teams">Mis equipos</a></li>
+              <li><a routerLink="/news">Noticias</a></li>
+            </ul>
+  
+          </div>
+        </nav> -->
 
-      <!-- <div class="mt-4">
-        <label>Preferencias</label>
-        <ul>
-          <li *ngFor="let preference of filteredPreferences">
-            <mat-card class="preference-card">
-              <mat-card-content>
-                <span class="attribute">{{ preference.attribute }}</span>:
-                <span class="value">{{ preference.value }}</span>
-              </mat-card-content>
-            </mat-card>
-          </li>
-        </ul>
-      </div> -->
-      
-      <div class="mt-4" >
-        <label>Estadísticas del equipo</label>
-        <div class="team-stats" class="container" >
-          <div *ngFor="let item of teamStatsByUser" >
-            <div class="stat-card">
-              <div class="stat-avatar"></div>
-              <div class="stat-title">{{ item.type.name }}</div>
-              <div class="stat-subtitle">
-                <ng-container *ngIf="item.type_id === 34 || item.type_id === 84 || item.type_id === 45">
-                  Promedio: {{ item.value.average }}
-                </ng-container>
-              </div>
-              <div >
-                <button class="btn-show-chart" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45) && !showChartMap[item.type_id]" (click)="showChart(item, item.type_id)">Ver gráfico</button>
-                <button class="btn-show-chart" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45) && showChartMap[item.type_id]" (click)="closeChart(item.type_id)">Cerrar gráfico</button>
-              </div>
-              <canvas [attr.id]="'myChart' + item.type_id" style="width: 100%; height: 100%;"></canvas>
-            </div>
-            <!-- <div class="card" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45)"> -->
-              
-            <!-- </div> -->
+        
+        <div class="team-presentation">
+          <div class="team-card">
+            <img [src]="team.image_path" alt="Imagen del equipo" class="team-image" />
           </div>
-        </div>
-      </div>
-      
-      
-      <!-- <div class="mt-4">
-        <label>Estadísticas del equipo</label>
-        <div class="team-stats">
-          <div *ngFor="let item of teamStatsByUser" class="container">
-            <div class="stat-card">
-              <div class="stat-avatar"></div>
-              <div class="stat-title">{{ item.type.name }}</div>
-              <div class="stat-subtitle">
+          <div class="team-info">
+            <h3 class="team-name">{{ team.name }}</h3>
+            <div class="team-stats">
+              <div *ngFor="let item of teamStatsByUser">
                 <ng-container *ngIf="item.type_id === 34 || item.type_id === 84 || item.type_id === 45">
-                  Promedio: {{ item.value.average }}
+                  <div class="team-stat">
+                    <span  [ngClass]="getIconClass(item.type_id)" class="team-stat-icon"></span>
+                    Promedio de {{ translations[item.type.name] }}: {{ item.value.average }}{{ item.type_id === 45 ? '%' : '' }} 
+                  </div>
                 </ng-container>
               </div>
-              <div>
-                <button class="btn-show-chart" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45)"
-                  (click)="toggleChart(item.type_id)">Ver gráfico</button>
-                <button class="btn-show-chart" *ngIf="showChartMap[item.type_id]"
-                  (click)="toggleChart(item.type_id)">Cerrar gráfico</button>
-              </div>
-            </div>
-            <div class="card" *ngIf="showChartMap[item.type_id]">
-              <canvas [attr.id]="'myChart' + item.type_id" style="width: 100%; height: 100%;"></canvas>
             </div>
           </div>
         </div>
-      </div> -->
+
+        
+        
+        <div class="mt-4" >
+          <div  class="container" >
+            <div *ngFor="let item of teamStatsByUser" >
+              <div class="stat-card" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45)">
+                <div class="stat-avatar"></div>
+                <div class="stat-title">{{translations[item.type.name]}}</div>
+                  <div class="stat-subtitle" >
+                    {{ item.type_id === 191 ? '' : getSubtitleText(item) + ': ' + (item.type_id === 196 || item.type_id === 213 ? getCustomCount(item) : item.value.all?.count) }}
+                  </div>
+                <div >
+                  <button class="btn-show-chart" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45) && !showChartMap[item.type_id]" (click)="showChart(item, item.type_id)">Ver gráfico</button>
+                  <button class="btn-show-chart" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45) && showChartMap[item.type_id]" (click)="closeChart(item.type_id)">Cerrar gráfico</button>
+                </div>
+                <canvas [attr.id]="'myChart' + item.type_id" style="width: 100%; height: 100%;"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      
       
       
     
-      
-
-      <!-- <mat-grid-list cols="4" rowHeight="300px">
-        <mat-card class="card" style="width: 300px; height: 300px;" >
-          <canvas id="myChart" style="width: 300px; height: 300px;"></canvas>
-        </mat-card>
-      </mat-grid-list> -->
-      
-      
-
-      <div *ngFor="let value of extractedValues">
-        <p>{{ value.range }}: {{ value.count }}</p>
-      </div>
-
-
-      <!-- <mat-grid-list cols="4" rowHeight="300px">
-        <mat-card class="card"   style="width: 300px; height: 300px;" >
-          <canvas id="myChart2" style="width: 300px; height: 300px;"></canvas>
-        </mat-card>
-      </mat-grid-list> -->
-
+     
    

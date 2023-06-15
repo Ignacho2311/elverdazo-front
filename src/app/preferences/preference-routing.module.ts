@@ -6,10 +6,12 @@ import { CreatePreferenceComponent } from './pages/create-preference/create-pref
 const routes: Routes = [{
   path:"",
   component:PreferencesComponent
+  
 },
 {
   path:"create-preference",
-  component:CreatePreferenceComponent
+  component:CreatePreferenceComponent,
+  
 },
 {
   path:"**",
