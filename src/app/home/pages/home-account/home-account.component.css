@@ -1,44 +1,114 @@
 .container {
-  max-width: 800px;
+  max-width: 1000px; /* Ajusta el ancho máximo del contenedor */
   margin: 0 auto;
 }
 
-nav {
-  background-color: #000;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-}
-
 h3 {
-  font-size: 24px;
-  margin-top: 20px;
+  font-size: 28px; /* Ajusta el tamaño del título */
+  margin-top: 30px; /* Ajusta el margen superior */
 }
 
 .fixture {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Ajusta el margen superior */
 }
 
-.partido {
-  background-color: #f2f2f2;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 4px;
+.fixture th,
+.fixture td {
+  padding: 15px; /* Ajusta el relleno */
+  text-align: center;
+  border: 1px solid #ccc;
 }
 
-.equipo {
+.fixture th {
   font-weight: bold;
+  font-size: 16px; /* Ajusta el tamaño de fuente para las cabeceras */
 }
 
 .versus {
-  font-size: 20px;
+  font-size: 24px; /* Ajusta el tamaño de fuente para el "vs" */
 }
 
 .fecha {
-  font-size: 14px;
+  font-size: 16px; /* Ajusta el tamaño de fuente para la fecha */
   color: #999;
 }
+
+.team-logo-small {
+  width: 30px; /* Ajusta el tamaño reducido del logo del equipo */
+  height: 30px;
+  margin-right: 10px; /* Ajusta el espaciado entre el logo y el nombre del equipo */
+}
+
+.team-name {
+  font-size: 20px; /* Ajusta el tamaño de la fuente del nombre del equipo */
+}
+
+.team-logo {
+  width: 40px; /* Ajusta el tamaño de la imagen del logo del equipo */
+  height: 40px;
+  vertical-align: middle;
+
+}
+
+.team-text {
+  font-size: 18px; /* Ajusta el tamaño de la fuente del texto del equipo */
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.graph-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+}
+
+.league-info {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border: 1px solid #ccc;
+  
+}
+
+.league-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.statistics {
+  font-family: Arial, sans-serif;
+}
+
+.statistic {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

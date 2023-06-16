@@ -1,7 +1,7 @@
 
 
 
-<div class="container">
+
   <!-- <nav>
     <div class="nav-wrapper green">
       <span class="brand-logo center">Verdazo</span>
@@ -14,24 +14,97 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down"><li><button (click)="logout()" class="btn waves-effect waves-light red logout-btn">Log Out</button></li></ul>
     </div>
   </nav> -->
-
-  <h3>Próximos partidos:</h3>
-
-  <div class="fixture">
-    <div class="partido">
-      <div class="equipo">Equipo A</div>
-      <div class="versus">vs</div>
-      <div class="equipo">Equipo B</div>
-      <div class="fecha">Fecha del partido</div>
+  <div class="container">
+    <div class="league-info">
+      <div class="league-details">
+        <h1 class="league-title">Superliga de Dinamarca Temporada {{ nameLeague }}</h1>
+        
+        <div class="statistics">
+          <div *ngFor="let stat of cornerStats">
+            <p class="statistic">Equipo con más corners: {{ stat.teamName }}</p>
+            <p>Total: {{ stat.count }}</p>
+            
+            <ul>
+              <li *ngFor="let cardStat of cardStats">
+                <p>Total Tarjetas Amarillas: {{ cardStat.totalYellowcards }}</p>
+                <p>Total Tarjetas Rojas: {{ cardStat.totalRedCards }}</p>
+                <p>Promedio Tarjetas Amarillas: {{ cardStat.AVGYellowCards }}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <button class="btn btn-primary">Ver equipos</button>
     </div>
+    
+    <h3>Próximos partidos:</h3>
+  
+    <table class="fixture">
+      <thead>
+        <tr>
+          <th *ngIf="locationTeam1 === 'home'; else localTeam">
+            <span class="team-name">LOCAL</span>
+          </th>
+          <th>Vs</th>
+          <th *ngIf="locationTeam2 === 'visita'; else visitaTeam">
+            <span class="team-name">VISITA</span>
+          </th>
+          <th>Estadisticas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <img src="{{ image1 }}" class="team-logo" alt="Logo Equipo 1">
+            <span class="team-text">{{ idTeam1 }}</span>
+          </td>
+          <td class="versus">vs</td>
+          <td>
+            <img src="{{ image2 }}" class="team-logo" alt="Logo Equipo 2">
+            <span class="team-text">{{ idTeam2 }}</span>
+          </td>
+          <td class="fecha">
+            <button class="btn btn-primary">Ver estadisticas</button>
+          </td>
+        </tr>
+        <!-- Repetir para cada partido -->
+      </tbody>
+    </table>
+    
+    <div class="graph-container">
+      <!-- Contenido del primer bloque -->
+      <h1> Top 5 Equipos con Mayor Promedio de Corners Superliga de Dinamarca 2022/2023</h1>
+      <canvas id="Corners" style="width: 100%; height: 100%;"></canvas>
 
-    <div class="partido">
-      <div class="equipo">Equipo C</div>
-      <div class="versus">vs</div>
-      <div class="equipo">Equipo D</div>
-      <div class="fecha">Fecha del partido</div>
     </div>
-</div>
+    
+    <div class="graph-container">
+      <!-- Contenido del segundo bloque -->
+      <h1>Top 5 Equipos con Mayor Promedio de Goles anotados  Superliga de Dinamarca 2022/2023</h1>
+      <canvas id="GolesAnotados" style="width: 100%; height: 100%;"></canvas>
+
+    </div>
+    
+    <div class="graph-container">
+      <!-- Contenido del tercer bloque -->
+      <h1> Promedio de Tarjetas Amarillas Superliga de Dinamarca 2022/2023</h1>
+      <canvas id="TarjetasAmarillas" style="width: 100%; height: 100%;"></canvas>
+
+    </div>
+  </div>
+  
+  
+  
+  <ng-template #localTeam>
+    <th> LOCAL</th>
+  </ng-template>
+  
+  <ng-template #visitaTeam>
+    <th> VISITA</th>
+  </ng-template>
+  
+  
 
 
 

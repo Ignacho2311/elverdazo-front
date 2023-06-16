@@ -25,4 +25,15 @@ export class SportmonksService {
   getTeamById(id:any):Observable<Datum>{
     return this._http.get<Datum>(`api/football/teams/${id}`)
   }
+
+  getFixtureByDate():Observable<any>{
+    return this._http.get<any>(`api/football/fixtures/date/2023-06-09?include=participants`)
+  }
+  getTeamsStatisticsBySeason():Observable<any>{
+    return this._http.get<any>("api/football/teams/seasons/19686?include=statistics.details.type&filters=teamstatisticSeasons:19686")
+  }
+
+  getSeasonStats():Observable<any>{
+    return this._http.get<any>("api/football/seasons/19686?include=statistics")
+  }
 }
