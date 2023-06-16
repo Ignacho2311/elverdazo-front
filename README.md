@@ -1,3 +1,10 @@
+Instrucciones para ejecutar elverdazo-front:
+1. Clonar repositorio o descargar carpeta zip
+2. Luego en la ruta donde está el proyecto Instalar la carpeta 'node_modules' con el siguiente comando: npm install
+3. Ejecutar el proyecto con el siguiente comando: 'ng serve --proxy-config proxy.conf.json'
+
+
+
 # VerdazoFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
