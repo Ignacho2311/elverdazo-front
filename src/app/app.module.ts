@@ -9,13 +9,13 @@ import { MatGridListModule  } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatMenuModule} from '@angular/material/menu';
-import { NavBarComponent } from './nav-bar/nav-bar.component'
+import { NavBarModule } from './nav-bar/nav-bar.module';
+import { NavBarComponent } from './nav-bar/pages/nav-bar.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavBarComponent,
+    AppComponent,NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +26,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component'
     MatGridListModule,
     MatIconModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

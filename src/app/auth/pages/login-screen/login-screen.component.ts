@@ -19,6 +19,7 @@ export class LoginScreenComponent {
   constructor(private fb:FormBuilder, private router:Router, private authService:AuthService){}
 
   login(){
+    
     console.log(this.miFormulario.value);
 
     this.authService.login(this.miFormulario.value).subscribe((res)=>{ // se suscribe al servicio

@@ -4,14 +4,12 @@ import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
-    path:"auth",
-    loadChildren:() => import("./auth/auth.module").then(m => m.AuthModule)
-  },
-  {
     path:"home",
     loadChildren:() => import("./home/home.module").then(m => m.HomeModule),
-    canActivate:[AuthGuard],
-    canLoad:[AuthGuard]
+  },
+  {
+    path:"auth",
+    loadChildren:() => import("./auth/auth.module").then(m => m.AuthModule)
   },
   {
     path:"mypreferences",
@@ -22,8 +20,6 @@ const routes: Routes = [
   {
     path:"news",
     loadChildren:()=> import("./news/news.module").then(m=>m.NewsModule),
-    canActivate:[AuthGuard],
-    canLoad:[AuthGuard]
   },
   {
     path:"teams",
@@ -39,7 +35,7 @@ const routes: Routes = [
   },
   {
     path:"**",
-    redirectTo:"auth"
+    redirectTo:"home"
   }
   
 ];

@@ -1,12 +1,14 @@
 body {
     background-color: #f2f9f0;
+    height: 900px;
+
   }
   
   .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    
   }
   
   .logo {
@@ -30,6 +32,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 40px;
   }
   
   .login-title {

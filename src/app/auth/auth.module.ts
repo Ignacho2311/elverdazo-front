@@ -5,6 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginScreenComponent } from './pages/login-screen/login-screen.component';
 import { RegisterScreenComponent } from './pages/register-screen/register-screen.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavBarModule } from '../nav-bar/nav-bar.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NavBarModule
   ]
 })
 export class AuthModule { }

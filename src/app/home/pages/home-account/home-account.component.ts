@@ -206,7 +206,7 @@ export class HomeAccountComponent implements OnInit {
         const data = top5Promedios.map((promedio) => promedio.promedio);
   
         const myChart = new Chart(canvas, {
-          type: 'pie',
+          type: 'bar',
           data: {
             labels: labels,
             datasets: [{

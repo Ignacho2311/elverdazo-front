@@ -1,0 +1,47 @@
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to left, #88a688, #359d39);
+  padding: 10px 20px; /* Agrega un espacio interno para el contenido */
+
+  /* Añade un height fijo para asegurar que el NAV tenga una altura adecuada */
+  height: 80px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  margin-top: 20px;
+  max-height: 110px;
+}
+
+.options {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.options li {
+  margin-right: 10px;
+}
+
+.options li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px 10px; /* Agrega un espacio interno para el texto */
+  border-radius: 5px; /* Agrega bordes redondeados a los enlaces */
+  transition: background-color 0.3s ease; /* Agrega una transición suave al color de fondo */
+}
+
+.options li a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Cambia el color de fondo al pasar el cursor */
+}
+
+.logout-btn {
+  margin-left: 10px;
+}

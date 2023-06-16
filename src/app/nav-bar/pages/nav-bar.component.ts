@@ -1,17 +1,18 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CrudService } from './services/crud.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { CrudService } from 'src/app/services/crud.service';
+
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-nav-bar',
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.css']
 })
-export class AppComponent implements OnInit{
-  title = 'verdazo-front';
+export class NavBarComponent {
   user:any
 
-  constructor( private router:Router, private crudService:CrudService){
+  constructor( private router:Router, private crudService:CrudService, public authService:AuthService){
   
   }
 
@@ -36,6 +37,5 @@ export class AppComponent implements OnInit{
     // Refresca la página
     location.reload();
   }
-  
 
 }

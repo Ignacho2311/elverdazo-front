@@ -7,7 +7,7 @@ import {Observable, catchError, map,of,tap} from 'rxjs'
   providedIn: 'root'
 })
 export class AuthService {
-
+  isLoggedIn = false;
   private _user:any = null
   private baseUrl = environment.baseUrl
 
@@ -27,6 +27,7 @@ export class AuthService {
             username:res.username,
             token:res.token
           }
+          this.isLoggedIn = true;
         }else{
           this._user= null
         }
