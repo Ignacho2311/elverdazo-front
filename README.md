@@ -29,7 +29,9 @@ Credenciales usuarios creados:
 | pw: 123456             |
 --------------------------
 
-
+Integrantes:
+- Ignacio Candia
+-  Carlos Ortega
 
 
 
