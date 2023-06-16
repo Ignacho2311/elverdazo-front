@@ -1,7 +1,9 @@
 Instrucciones para ejecutar elverdazo-front:
-1. Clonar repositorio o descargar carpeta zip
-2. Luego en la ruta donde está el proyecto Instalar la carpeta 'node_modules' con el siguiente comando: npm install
-3. Ejecutar el proyecto con el siguiente comando: 'ng serve --proxy-config proxy.conf.json'
+1. Clonar repositorio o descargar carpeta ZIP.
+2. Luego en la ruta donde está el proyecto Instalar la carpeta 'node_modules' con el siguiente comando: npm install.
+3. Luego ejecutar el proyecto en la misma ruta con el siguiente comando: 'ng serve --proxy-config proxy.conf.json'.
+
+No es necesario realizar la descarga de la Base de Datos, ya que se encuentra implementada en la nube utilizando MongoDB Atlas.
 
 
 
