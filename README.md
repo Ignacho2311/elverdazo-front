@@ -1,34 +1,41 @@
-Instrucciones para ejecutar elverdazo-front:
-1. Clonar repositorio o descargar carpeta zip
-2. Luego en la ruta donde está el proyecto Instalar la carpeta 'node_modules' con el siguiente comando: npm install
-3. Ejecutar el proyecto con el siguiente comando: 'ng serve --proxy-config proxy.conf.json'
-
-
-
 # VerdazoFront
+El proyecto es una página web que ofrece estadísticas de equipos de fútbol representadas visualmente a través de gráficos. Además, brinda la funcionalidad de personalizar las preferencias de estadísticas y equipos para cada usuario.
+
+Los usuarios tienen la capacidad de seleccionar sus equipos favoritos y establecer sus preferencias específicas en cuanto a las estadísticas que desean visualizar. Esto les permite ser más precisos y eficientes al analizar los datos y gráficos presentados en la plataforma.
+
+En resumen, el proyecto ofrece una experiencia personalizada de análisis de estadísticas de equipos de fútbol, donde los usuarios pueden definir sus preferencias y acceder a gráficos informativos que les ayudarán a comprender y evaluar el rendimiento de los equipos de su interés.
+
+El proyecto también incorpora información de probabilidades a través de la fórmula de Poisson. Esta metodología permite determinar la probabilidad de que un equipo de fútbol anote 0, 1, 2 o 3 goles en un partido. Estas probabilidades son calculadas y presentadas junto a las estadísticas y gráficos existentes, brindando a los usuarios una visión más completa y detallada de las posibles situaciones en un encuentro.
+
+Con esta información adicional, los usuarios pueden evaluar las probabilidades de anotación de los equipos involucrados y utilizarla como un factor adicional al analizar los datos presentados en la plataforma. Esto les ayuda a tener una perspectiva más informada y precisa al momento de tomar decisiones basadas en los resultados de los partidos y las estadísticas de los equipos.
+
+Instrucciones para ejecutar elverdazo-front:
+1. Clonar repositorio o descargar carpeta ZIP.
+2. Luego en la ruta donde está el proyecto Instalar la carpeta 'node_modules' con el siguiente comando: npm install.
+3. Luego ejecutar el proyecto en la misma ruta con el siguiente comando: 'ng serve --proxy-config proxy.conf.json'.
+
+No es necesario realizar la descarga de la Base de Datos, ya que se encuentra implementada en la nube utilizando MongoDB Atlas.
+
+Para iniciar sesión hay usuarios creados o bien puede crear su cuenta y luego escoger sus estadisticas favoritas.
+Credenciales usuarios creados:
+--------------------------        
+| Usuario 1:             |
+| Email: test1@mail.com  |
+| pw: 123456             |
+--------------------------
+--------------------------
+| Usuario 2:             |
+| Email: test2@mail.com  |
+| pw: 123456             |
+--------------------------
+
+Integrantes:
+- Ignacio Candia
+-  Carlos Ortega
+
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
