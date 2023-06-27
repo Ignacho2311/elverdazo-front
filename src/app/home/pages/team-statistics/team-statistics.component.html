@@ -1,0 +1,49 @@
+
+
+<div class="container">
+
+    <div class="team-presentation">
+        <div class="team-card">
+          <img [src]="team.image_path" alt="Imagen del equipo" class="team-image" />
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">{{ team.name }}</h3>
+          <div class="team-stats">
+            <div *ngFor="let item of stats">
+              <ng-container *ngIf="item.type_id === 34 || item.type_id === 84 || item.type_id === 45">
+                <div class="team-stat">
+                  <span  [ngClass]="getIconClass(item.type_id)" class="team-stat-icon"></span>
+                  Promedio de {{ translations[item.type.name] }}: {{ item.value.average }}{{ item.type_id === 45 ? '%' : '' }} 
+                </div>
+              </ng-container>
+            </div>
+            <!-- <div *ngFor="let stat of stats" >
+              <div *ngIf="stat.type_id === 52">
+                {{stat.value.all.average}} 
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+
+    <div class="mt-4" >
+        <div  class="container" >
+          <div *ngFor="let item of stats" >
+            <div class="stat-card" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45 || item.type_id === 83 || item.type_id === 85) ">
+              <div class="stat-avatar"></div>
+              <div class="stat-title">{{translations[item.type.name]}}</div>
+                <div class="stat-subtitle" >
+                  {{ item.type_id === 191 ? '' : getSubtitleText(item) + ': ' + (item.type_id === 196 || item.type_id === 213 ? getCustomCount(item) : item.value.all?.count) }}
+                </div>
+              <div >
+                <button class="btn-show-chart" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45) && !showChartMap[item.type_id]" (click)="showChart(item, item.type_id)">Ver gráfico</button>
+                <button class="btn-show-chart" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45) && showChartMap[item.type_id]" (click)="closeChart(item.type_id)">Cerrar gráfico</button>
+              </div>
+              <canvas [attr.id]="'myChart' + item.type_id" style="width: 100%; height: 100%;"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+

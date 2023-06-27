@@ -25,7 +25,10 @@ export class LoginScreenComponent {
     this.authService.login(this.miFormulario.value).subscribe((res)=>{ // se suscribe al servicio
       if (res === true) {
         localStorage.setItem("user",JSON.stringify(this.authService.user)) // guarda el token del usuario en el localStorage
-        this.router.navigateByUrl("/home") // lo redirije al home del usuario
+        this.router.navigateByUrl("/home").then(()=>{
+          window.location.reload()
+        }) // lo redirije al home del usuario
+        
       }else{
         Swal.fire({
           title:"Error ...",

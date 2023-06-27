@@ -36,7 +36,18 @@
         </div>
       </div>
       
-      <button class="btn btn-primary">Ver equipos</button>
+      <button class="btn btn-primary" (click)="viewTeams()" *ngIf="!viewTeam">Ver equipos</button>
+      <button *ngIf="viewTeam" (click)="closeTeams()" class="close-button"> Cerrar Equipos</button>
+      <div *ngIf="viewTeam" class="team-container">
+        <div *ngFor="let team of teamsBySeason" class="team-card">
+          <div class="team-info">
+            <img [src]="team.image_path" alt="Logo del equipo" class="equipo-logo">
+            <span class="equipo-nombre">{{ team.name }}</span>
+          </div>
+          <button (click)="verEstadisticas(team.id)" class="ver-estadisticas-btn">Ver estadísticas</button>
+        </div>
+      </div>
+      
     </div>
     
     <h3>Próximos partidos:</h3>
@@ -58,15 +69,15 @@
         <tr>
           <td>
             <img src="{{ image1 }}" class="team-logo" alt="Logo Equipo 1">
-            <span class="team-text">{{ idTeam1 }}</span>
+            <span class="team-text">{{ team1 }}</span>
           </td>
           <td class="versus">vs</td>
           <td>
             <img src="{{ image2 }}" class="team-logo" alt="Logo Equipo 2">
-            <span class="team-text">{{ idTeam2 }}</span>
+            <span class="team-text">{{ team2 }}</span>
           </td>
           <td class="fecha">
-            <button class="btn btn-primary">Ver estadisticas</button>
+            <button class="btn btn-primary" (click)="verEstadisticasEquipos(idTeam1,idTeam2)">Ver estadisticas</button>
           </td>
         </tr>
         <!-- Repetir para cada partido -->

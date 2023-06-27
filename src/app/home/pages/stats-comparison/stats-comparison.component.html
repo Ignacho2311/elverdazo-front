@@ -1,0 +1,70 @@
+<div class="container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>{{teamName1}}</th>
+          <th>Estadística</th>
+          <th>{{teamName2}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ getCorners(dataEquipo1) }}</td>
+          <td>Promedio Corners</td>
+          <td>{{ getCorners(dataEquipo2) }}</td>
+        </tr>
+        <tr>
+          <td>{{ getYellowCards(dataEquipo1) }}</td>
+          <td>Promedio Tarjetas Amarillas</td>
+          <td>{{ getYellowCards(dataEquipo2) }}</td>
+        </tr>
+        <tr>
+            <td>{{ getBallPossession(dataEquipo1) }}</td>
+            <td>Promedio Posesión Balón</td>
+            <td>{{ getBallPossession(dataEquipo2) }}</td>
+        </tr>
+        <tr>
+            <td>{{ getGoalsConceded(dataEquipo1) }}</td>
+            <td>Goles concedidos</td>
+            <td>{{ getGoalsConceded(dataEquipo2) }}</td>
+        </tr>
+        <tr>
+            <td>{{ getScoringGoals(dataEquipo1) }}</td>
+            <td>Goles Anotados</td>
+            <td>{{ getScoringGoals(dataEquipo2) }}</td>
+        </tr>
+        <tr>
+            <td>{{ getBothTeamsToScore(dataEquipo1) }}</td>
+            <td>Ambos equipos anotan ( Total Partidos)</td>
+            <td>{{ getBothTeamsToScore(dataEquipo2) }}</td>
+        </tr>
+        <tr>
+            <td>{{ getCleansheets(dataEquipo1) }}</td>
+            <td>Porteria en 0 (Total Partidos)</td>
+            <td>{{ getCleansheets(dataEquipo2) }}</td>
+        </tr>
+        <tr>
+            <td>{{ getFailedToScore(dataEquipo1) }}</td>
+            <td>Sin anotar gol (Total Partidos)</td>
+            <td>{{ getFailedToScore(dataEquipo2) }}</td>
+        </tr>
+        <tr>
+            <td>{{ getTeamDraws(dataEquipo1) }}</td>
+            <td>Total Empates</td>
+            <td>{{ getTeamDraws(dataEquipo2) }}</td>
+        </tr>
+        <tr>
+            <td>{{ getTeamWins(dataEquipo1) }}</td>
+            <td>Total Victorias</td>
+            <td>{{ getTeamWins(dataEquipo2) }}</td>
+        </tr>
+        <tr>
+            <td>{{ getTeamLost(dataEquipo1) }}</td>
+            <td>Total Derrotas</td>
+            <td>{{ getTeamLost(dataEquipo2) }}</td>
+        </tr>
+        <!-- Agrega más filas para otras estadísticas -->
+      </tbody>
+    </table>
+  </div>
+  

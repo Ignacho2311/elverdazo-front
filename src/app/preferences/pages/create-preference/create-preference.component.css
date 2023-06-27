@@ -1,4 +1,7 @@
 /* Estilos para las tarjetas de equipo */
+.container{
+  margin-top: 15px;
+}
 .team-card {
   width: 230px;
   height: 230px;

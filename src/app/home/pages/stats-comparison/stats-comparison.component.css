@@ -1,0 +1,28 @@
+.container {
+  margin-top: 16px;
+  width: 80%;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.comparison-table th {
+  background-color: #f2f2f2;
+}
+
+.comparison-table td {
+  background-color: #fff;
+}
+
+.comparison-table tr:nth-child(even) td {
+  background-color: #f9f9f9;
+}

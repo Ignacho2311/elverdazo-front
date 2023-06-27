@@ -1,0 +1,139 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin-top: 16px
+  }
+  
+  .card {
+    width: 350px;
+    height: 350px;
+    margin: 10px;
+  }
+  
+  .label-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .stat-card {
+    background-color: #E6F5E7;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    height: auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 15px;
+  }
+  
+  .stat-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #245C33;
+  }
+  
+  .stat-subtitle {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #245C33;
+  }
+  
+  .btn-show-chart {
+    background-color: #32A852;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 3px;
+    width: 100%;
+  }
+  
+  .btn-show-chart:hover {
+    background-color: #267633;
+  }
+  
+  .team-presentation {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: #f1f1f1;
+      padding: 20px;
+      width: 100%;
+    }
+  
+    .team-card {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+  
+    .team-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  
+    .team-info {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .team-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+  
+    .team-stats {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .team-stat {
+      margin-bottom: 10px;
+      color: #333;
+      font-size: 16px;
+    }
+  
+  .icon-possession {
+    background-image: url('../../../../assets/soccer-player.png');
+    /* Otros estilos para el icono de goles */
+  }
+  
+  .icon-corner {
+    background-image: url('../../../../assets/corner.png');
+    /* Otros estilos para el icono de posesión del balón */
+  }
+  
+  .icon-yellow-card{
+    background-image: url('../../../../assets/yellow-card.png');
+    /* Otros estilos para el icono de tarjetas amarillas */
+  }
+  .team-stat-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    margin-right: 10px;
+    /* Otros estilos adicionales si es necesario */
+  }
+  
+  
+  
+  
+  
+  
+  

@@ -41,15 +41,21 @@ export class HomeAccountComponent implements OnInit {
   nameLeague: any;
   cornerStats!: any[];
   cardStats!: any[];
-  constructor(private sportMonksService:SportmonksService){
+  viewTeam: boolean = false
+  teamsBySeason:any
+  team1: any;
+  team2: any;
+
+  constructor(private sportMonksService:SportmonksService, private router:Router){
   
   }
 
   ngOnInit():void{
     this.sportMonksService.getFixtureByDate().subscribe((res)=>{
-      this.teams= res.data[0].name
-      this.idTeam1 = res.data[0].participants[0].name
-      this.idTeam2 = res.data[0].participants[1].name
+      this.idTeam1 = res.data[0].participants[0].id
+      this.idTeam2 = res.data[0].participants[1].id
+      this.team1 = res.data[0].participants[0].name
+      this.team2 = res.data[0].participants[1].name
       this.locationTeam1 = res.data[0].participants[0].location
       this.locationTeam2 = res.data[0].participants[1].location
       this.image1= res.data[0].participants[0].image_path
@@ -63,6 +69,30 @@ export class HomeAccountComponent implements OnInit {
     this.graficoPromedioTarjetasAmarillas()
     // this.getTopCornersAverage()
     this.getSeasonStats()
+
+    this.sportMonksService.getTeams().subscribe((res)=>{
+      this.teamsBySeason= res.data
+      console.log(this.teamsBySeason);
+      
+    })
+  }
+
+  verEstadisticas(teamId:any){
+    this.router.navigate(['/home/team-stats', teamId]);
+  }
+  verEstadisticasEquipos(team1:any,team2:any){
+    this.router.navigate(['/home/stats-comparison', team1,team2]);
+
+  }
+
+  viewTeams(){
+    this.viewTeam = true
+
+  }
+
+  closeTeams(){
+    this.viewTeam = false
+
   }
 
   // getTopCornersAverage() {

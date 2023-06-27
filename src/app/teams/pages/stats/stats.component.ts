@@ -373,7 +373,7 @@ export class StatsComponent implements OnInit{
               plugins: {
                 title: {
                   display: true,
-                  text: name, // Título del gráfico
+                  // Título del gráfico
                   font: {
                     size: 13,
                   },
@@ -424,7 +424,7 @@ export class StatsComponent implements OnInit{
   } else {
     return 'Total Partidos';
   }
-}
+  }
   
   getIconClass(typeId: number): string {
     if (typeId === 34) {
