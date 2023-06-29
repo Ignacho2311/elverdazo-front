@@ -1,10 +1,11 @@
 /* Estilos para las tarjetas de equipo */
-.container{
+.container {
   margin-top: 15px;
 }
+
 .team-card {
-  width: 230px;
-  height: 230px;
+  width: 220px;
+  height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +15,7 @@
   background-color: #f5f5f5;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
-  margin: 0.5rem;
+  margin: 0.25rem; /* Reducir el margen entre las tarjetas */
   position: relative;
 }
 
@@ -25,29 +26,17 @@
 
 /* Estilos para la imagen del equipo */
 .team-card img {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border-radius: 8px;
 }
 
 /* Estilos para el nombre del equipo */
-.team-card .team-name {
-  position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  z-index: 1;
-}
-
-/* Estilos para el checkbox */
 .team-card .custom-checkbox {
   display: flex;
   align-items: center;
   margin-top: 0.5rem;
-
 }
 
 /* Estilos para el texto del checkbox */
@@ -60,7 +49,47 @@
   background-color: #3e8745;
   cursor: pointer;
 }
-.title-black {
-  color: black;
+
+/* Estilos para los títulos */
+h1.text-center.mb-4 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
 }
 
+/* Estilos para los nombres de los equipos */
+.team-card .team-name {
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  z-index: 1;
+  text-align: center;
+}
+
+h3{
+  text-align: center;
+}
+
+/* Estilos para el formulario */
+form {
+  margin-top: 1rem;
+}
+
+/* Estilos para los botones */
+button.btn.btn-primary {
+  margin-top: 1rem;
+}
+
+/* Estilos para las tarjetas de preferencias */
+.mat-grid-tile {
+  margin-top: 20px;
+}
+
+#btncrear{
+  margin-left: 500px;
+  margin-top: 50px;
+}

@@ -6,6 +6,8 @@ import { HomeAccountComponent } from './pages/home-account/home-account.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { TeamStatisticsComponent } from './pages/team-statistics/team-statistics.component';
 import { StatsComparisonComponent } from './pages/stats-comparison/stats-comparison.component';
+import { FooterComponent } from '../footer/footer.component';
+import { TeamStatistics2Component } from './pages/team-statistics2/team-statistics2.component';
 
 
 @NgModule({
@@ -13,6 +15,8 @@ import { StatsComparisonComponent } from './pages/stats-comparison/stats-compari
     HomeAccountComponent,
     TeamStatisticsComponent,
     StatsComparisonComponent,
+    FooterComponent,
+    TeamStatistics2Component
     
   ],
   imports: [

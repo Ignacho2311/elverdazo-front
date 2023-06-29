@@ -5,11 +5,13 @@
       
     </div>
     <ul id="nav-mobile" class="options">
-      <li><a  routerLink="/home">Home</a></li>
+      <!-- <li><a  routerLink="/home">Home</a></li> -->
       <li><a *ngIf="this.hasUser();"  routerLink="/mypreferences">Mis preferencias</a></li>
       <li><a *ngIf="this.hasUser();" routerLink="/teams">Mis equipos</a></li>
       <li><button *ngIf="this.hasUser();"   (click)="logout()" class="btn waves-effect waves-light red logout-btn">Log Out</button>
-      <li><button *ngIf="!this.hasUser();" routerLink="/auth/login" class="btn waves-effect waves-light red logout-btn">Iniciar sesion</button>
+      <li><button *ngIf="!this.hasUser();" routerLink="/auth/login" class="btn waves-effect waves-light green logout-btn">Iniciar sesion</button>
+      <li><button *ngIf="!this.hasUser();" routerLink="/auth/register" class="btn waves-effect waves-light blue logout-btn">Registrarse</button>
+
     </ul>
   </div>
 </nav>

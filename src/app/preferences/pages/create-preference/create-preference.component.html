@@ -1,23 +1,12 @@
 <div class="container">
-  <!-- <nav>
-    <div class="nav-wrapper green">
-      
-      <span class="brand-logo center">Verdazo</span>
-      <ul id="nav-mobile" class="center hide-on-med-and-down">
-        <li><a routerLink="/home">Home</a></li>
-        <li><a routerLink="/mypreferences">Mis preferencias</a></li>
-        <li><a routerLink="/teams">Mis equipos</a></li>
-        <li><a routerLink="/news">Noticias</a></li>
-      </ul>
-    </div>
-  </nav> -->
+
 
   <form [formGroup]="miFormulario" (ngSubmit)="create()" class="mt-4">
     <h1 class="text-center mb-4">Escoja sus equipos favoritos</h1>
 
     <div class="mt-4">
-      <label>Equipos Season Premiership Escocia</label>
-      <mat-grid-list cols="4" rowHeight="1:1">
+      <h3>Equipos Season Premiership Escocia</h3>
+      <mat-grid-list cols="5" rowHeight="1:1">
         <ng-container *ngFor="let team of teams">
           <mat-grid-tile>
             <mat-card [ngClass]="{ 'team-card': true, 'selected': equiposSeleccionados.includes(team.id) }" (click)="toggleSelection(team)">
@@ -35,7 +24,9 @@
     </div>
     
     <div class="mt-4" *ngIf="equiposSeleccionados.length > 0">
-      <mat-grid-list cols="4" rowHeight="200px">
+      <h1 class="text-center mb-4">Escoja sus preferencias favoritas</h1>
+
+      <mat-grid-list cols="4" rowHeight="200px" >
         <ng-container *ngFor="let stat of teamStats">
           <mat-grid-tile *ngIf="stat.type.name !== 'Redcards' && stat.type.name !== 'Yellowred Cards'">
             <label>
@@ -50,24 +41,26 @@
                       <span class="checkmark"></span>
                     </label>
                   </div>
-                  <p class="text-center mt-3">{{ stat.type.name }}: {{ stat.type_id }}</p>
+                  <!-- <p class="text-center mt-3">{{ stat.type.name }}: {{ stat.type_id }}</p> -->
                 </mat-card-content>
               </mat-card>
             </label>
           </mat-grid-tile>
         </ng-container>
       </mat-grid-list>
+      <button type="submit" id="btncrear" class="btn btn-primary">Crear preferencias</button>
+
     </div>
     
     
     
     
 
-    <div class="row mt-4">
+    <!-- <div class="row mt-4">
       <div class="col text-center">
         <button type="submit" class="btn btn-primary">Crear preferencias</button>
       </div>
-    </div>
+    </div> -->
   </form>
 </div>
 

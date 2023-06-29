@@ -108,26 +108,141 @@
     font-size: 16px;
   }
 
-.icon-possession {
-  background-image: url('../../../../assets/soccer-player.png');
-  /* Otros estilos para el icono de goles */
+  .icon-possession {
+    background-image: url('../../../../assets/soccer-player.png');
+    /* Otros estilos para el icono de goles */
+  }
+  
+  .icon-corner {
+    background-image: url('../../../../assets/corner.png');
+    width: 25px;
+    height: 25px;
+    /* Otros estilos para el icono de posesión del balón */
+  }
+  
+  .icon-yellow-card{
+    background-image: url('../../../../assets/yellow-card.png');
+    /* Otros estilos para el icono de tarjetas amarillas */
+  }
+  .icon-goal{
+    background-image: url('../../../../assets/objetivo.png');
+    /* Otros estilos para el icono de tarjetas amarillas */
+  }
+  .icon-win{
+    background-image: url('../../../../assets/comprobado.png');
+    /* Otros estilos para el icono de tarjetas amarillas */
+  }
+  .icon-lost{
+    background-image: url('../../../../assets/cancelar.png');
+    /* Otros estilos para el icono de tarjetas amarillas */
+  }
+  .icon-cleansheets{
+    background-image: url('../../../../assets/campo-de-futbol.png');
+    /* Otros estilos para el icono de tarjetas amarillas */
+  }
+  .icon-draw{
+    background-image: url('../../../../assets/signo-matematico-igual.png');
+    /* Otros estilos para el icono de tarjetas amarillas */
+  }
+
+
+.team-stats {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
-.icon-corner {
-  background-image: url('../../../../assets/corner.png');
-  /* Otros estilos para el icono de posesión del balón */
+.team-stat-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: 200px;
+  margin-top: 30px;
 }
 
-.icon-yellow-card{
-  background-image: url('../../../../assets/yellow-card.png');
-  /* Otros estilos para el icono de tarjetas amarillas */
+.team-stat {
+  display: flex;
+  align-items: center;
 }
+
 .team-stat-icon {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: auto;
+  height: auto;
+  background-size: cover;
+}
+
+.team-stat-icon2{
+  display: inline-block;
+  width: 35px;
+  height: 35px;
   background-size: cover;
   margin-right: 10px;
+  /* Otros estilos adicionales si es necesario */
+}
+
+.team-stat-label {
+  font-size: 16px;
+  color: #333;
+  margin-right: 5px;
+}
+
+.team-stat-value {
+  font-size: 16px;
+  color: #333;
+}
+
+.poisson-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0px;
+  margin-bottom: 25px;
+  margin-top: 40px;
+
+}
+
+.poisson-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.porcentaje-label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.porcentaje-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.porcentaje-item {
+  margin-bottom: 5px;
+}
+
+.poisson {
+  margin-left: auto;
+}
+
+.stat-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-stat-icon {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  background-size: cover;
+  background-position: center;
   /* Otros estilos adicionales si es necesario */
 }
 

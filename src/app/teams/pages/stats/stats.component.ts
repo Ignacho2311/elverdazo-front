@@ -433,6 +433,16 @@ export class StatsComponent implements OnInit{
       return 'icon-possession';
     } else if (typeId === 84) {
       return 'icon-yellow-card';
+    } else if (typeId === 213 || typeId === 196 || typeId === 52 || typeId === 88 || typeId === 191 || typeId === 192){
+      return 'icon-goal'
+    }else if (typeId === 214){
+      return 'icon-win'
+    }else if (typeId === 216 ){
+      return 'icon-lost'
+    }else if (typeId === 194 || typeId === 575 ){
+      return 'icon-cleansheets'
+    }else if (typeId === 215 ){
+      return 'icon-draw'
     }
     return '';
   }
@@ -626,4 +636,40 @@ export class StatsComponent implements OnInit{
       });
     }
   }
+
+
+  //Poisson
+calcularPoisson(lambda: number, k: number): number {
+  const exponente = Math.exp(-lambda); //e'-LAMBDA
+  const numerador = Math.pow(lambda, k); // LAMBDA 'ELEVADO a K
+  const factorial = this.factorialRecursivo(k);
+  return (exponente * numerador) / factorial;
+}
+
+factorialRecursivo(n: number): number {
+  if (n === 0 || n === 1) {
+    return 1;
+  } else {
+    return n * this.factorialRecursivo(n - 1);
+  }
+}
+calcularProbabilidadGoles(lambda: number, k: number): number[] {
+  const probabilidades: number[] = [];
+
+  for (let i = 0; i <= k; i++) {
+    const probabilidad = this.calcularPoisson(lambda, i);
+    probabilidades.push(probabilidad);
+  }
+
+  const totalProbabilidades = probabilidades.reduce((a, b) => a + b, 0);
+  const porcentajes: number[] = probabilidades.map((probabilidad) => (probabilidad / totalProbabilidades) * 100);
+
+  return porcentajes;
+}
+
+mostrarPorcentajes(lambda: number, k: number): number[] {
+  let contador = 1;
+  return this.calcularProbabilidadGoles(lambda, k);
+
+}
 }

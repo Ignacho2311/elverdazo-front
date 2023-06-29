@@ -18,9 +18,8 @@
         <div class="team-image" [style.background-image]="'url(' + equipo.image_path + ')'"></div>
         <div class="team-content">
           <h3 class="team-name">{{ equipo.name }}</h3>
-          <button class="team-button" (click)="getStatsByTeamId(equipo.id)">Ver estadísticas</button>
+          <button class="team-button" (click)="getStatsByTeamId(equipo.id)">Ver estadísticas</button> 
           <button class="team-button2"  (click)="deleteTeam(equipo.id)">Eliminar</button>
-
         </div>
       </div>
     </div>
@@ -55,6 +54,6 @@
       <img [src]="equipo.image_path" alt="Escudo"> <br>
       <button class="btn waves-effect waves-light green" (click)="getStatsByTeamId(equipo.id)" >Ver estadisticas</button>
     </div> -->
-    <button class="team-button stats">Agregar Equipos</button>
+    <!-- <button class="team-button stats">Agregar Equipos</button> -->
 </div>
 

@@ -14,109 +14,227 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down"><li><button (click)="logout()" class="btn waves-effect waves-light red logout-btn">Log Out</button></li></ul>
     </div>
   </nav> -->
-  
-  <div class="container">
-    <div class="league-info">
-      <div class="league-details">
-        <h1 class="league-title">Superliga de Dinamarca Temporada {{ nameLeague }}</h1>
+  <body>
+    <div class="container">
+      <div class="league-info">
+        <div class="container2">
+          <h1 class="league-title">Superliga de Dinamarca Temporada {{ nameLeague }}</h1>
+          
+          <div class="statistics">
+            <div *ngFor="let stat of cornerStats">
+              <p class="statistic">Equipo con más corners: {{ stat.teamName }}  (Corners:{{stat.count}})</p>
+              <!-- <p>Total: {{ stat.count }}</p> -->
+              
+              <ul>
+                <li *ngFor="let cardStat of cardStats">
+                  <!-- <p>Total Tarjetas Amarillas: {{ cardStat.totalYellowcards }}</p>
+                  <p>Total Tarjetas Rojas: {{ cardStat.totalRedCards }}</p> -->
+                  <p>Promedio Tarjetas Amarillas: {{ cardStat.AVGYellowCards }}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         
-        <div class="statistics">
-          <div *ngFor="let stat of cornerStats">
-            <p class="statistic">Equipo con más corners: {{ stat.teamName }}</p>
-            <p>Total: {{ stat.count }}</p>
-            
-            <ul>
-              <li *ngFor="let cardStat of cardStats">
-                <p>Total Tarjetas Amarillas: {{ cardStat.totalYellowcards }}</p>
-                <p>Total Tarjetas Rojas: {{ cardStat.totalRedCards }}</p>
-                <p>Promedio Tarjetas Amarillas: {{ cardStat.AVGYellowCards }}</p>
-              </li>
-            </ul>
+        <button class="btn btn-primary" (click)="viewTeams()" *ngIf="!viewTeam">Ver equipos</button>
+        <button *ngIf="viewTeam" (click)="closeTeams()" class="close-button"> Cerrar Equipos</button>
+        <div *ngIf="viewTeam" class="team-container">
+          <div *ngFor="let team of teamsBySeason" class="team-card">
+            <div class="team-info">
+              <img [src]="team.image_path" alt="Logo del equipo" class="equipo-logo">
+              <span class="equipo-nombre">{{ team.name }}</span>
+            </div>
+            <button (click)="verEstadisticas(team.id)" class="ver-estadisticas-btn">Ver estadísticas</button>
+          </div>
+        </div>
+        
+      </div>
+
+
+
+      
+      
+      <h3>Próximos partidos:</h3>
+    
+      <table class="fixture">
+        <thead>
+          <tr>
+            <th *ngIf="locationTeam1 === 'home'; else localTeam">
+              <span class="team-name">LOCAL</span>
+            </th>
+            <th>Vs</th>
+            <th *ngIf="locationTeam2 === 'visita'; else visitaTeam">
+              <span class="team-name">VISITA</span>
+            </th>
+            <th>Estadisticas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <img src="{{ image1 }}" class="team-logo" alt="Logo Equipo 1">
+              <span class="team-text">{{ team1 }}</span>
+            </td>
+            <td class="versus">vs</td>
+            <td>
+              <img src="{{ image2 }}" class="team-logo" alt="Logo Equipo 2">
+              <span class="team-text">{{ team2 }}</span>
+            </td>
+            <td class="fecha">
+              <button class="ver-estadisticas-btn" (click)="verEstadisticasEquipos(idTeam1,idTeam2)">Ver estadisticas</button>
+            </td>
+          </tr>
+          <!-- Repetir para cada partido -->
+        </tbody>
+      </table>
+  
+      
+      <h1 class="avg-title">PROMEDIOS</h1>
+      <div class="container-avg">
+        <div class="graph-block">
+          <div class="graph-container">
+            <h1>Top 5 Equipos con Mayor Promedio de Corners Superliga de Dinamarca 2022/2023</h1>
+            <canvas id="Corners"></canvas>
+          </div>
+        </div>
+
+        <div class="graph-block">
+          <div class="graph-container">
+            <h1>Top 5 Equipos con Mayor Promedio de Goles anotados Superliga de Dinamarca 2022/2023</h1>
+            <canvas id="GolesAnotados"></canvas>
+          </div>
+        </div>
+
+        <div class="graph-block">
+          <div class="graph-container">
+            <h1>Promedio de Tarjetas Amarillas Superliga de Dinamarca 2022/2023</h1>
+            <canvas id="TarjetasAmarillas"></canvas>
           </div>
         </div>
       </div>
-      
-      <button class="btn btn-primary" (click)="viewTeams()" *ngIf="!viewTeam">Ver equipos</button>
-      <button *ngIf="viewTeam" (click)="closeTeams()" class="close-button"> Cerrar Equipos</button>
-      <div *ngIf="viewTeam" class="team-container">
-        <div *ngFor="let team of teamsBySeason" class="team-card">
-          <div class="team-info">
-            <img [src]="team.image_path" alt="Logo del equipo" class="equipo-logo">
-            <span class="equipo-nombre">{{ team.name }}</span>
+
+      <h1 class="avg-title">OTRAS ESTADÍSTICAS</h1>
+      <div class="container-avg">
+        <div class="graph-container">
+          <h1>Cantidad de goles Anotados de local y visita de los equipos</h1>
+          <canvas id="graficoGolesAnotados"></canvas>
+        </div>
+
+        <div class="graph-container">
+          <h1>Cantidad de goles Concedidos de local y visita de los equipos</h1>
+          <canvas id="graficoGolesConcedidos"></canvas>
+        </div>
+
+        <div class="graph-container">
+          <h1>Victorias de local y visita de los equipos</h1>
+          <canvas id="graficoVictorias"></canvas>
+        </div>
+
+        <div class="graph-container">
+          <h1>Derrotas de local y visita de los equipos</h1>
+          <canvas id="graficoDerrotas"></canvas>
+        </div>
+
+        <div class="graph-container">
+          <h1>Empates de local y visita de los equipos</h1>
+          <canvas id="graficoEmpates"></canvas>
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------------->
+
+      <div class="league-info">
+        <div class="container2">
+          <h1 class="league-title">Premiership Escocia Temporada {{ nameLeague2 }}</h1>
+          
+          <div class="statistics">
+            <div *ngFor="let stat of cornerStats2">
+              <p class="statistic">Equipo con más corners: {{ stat.teamName }}  (Corners:{{stat.count}})</p>
+              <!-- <p>Total: {{ stat.count }}</p> -->
+              
+              <ul>
+                <li *ngFor="let cardStat of cardStats2">
+                  <!-- <p>Total Tarjetas Amarillas: {{ cardStat.totalYellowcards }}</p>
+                  <p>Total Tarjetas Rojas: {{ cardStat.totalRedCards }}</p> -->
+                  <p>Promedio Tarjetas Amarillas: {{ cardStat.AVGYellowCards }}</p>
+                </li>
+              </ul>
+            </div>
           </div>
-          <button (click)="verEstadisticas(team.id)" class="ver-estadisticas-btn">Ver estadísticas</button>
+        </div>
+        
+        <button class="btn btn-primary" (click)="viewTeams2()" *ngIf="!viewTeam2">Ver equipos</button>
+        <button *ngIf="viewTeam2" (click)="closeTeams2()" class="close-button"> Cerrar Equipos</button>
+        <div *ngIf="viewTeam2" class="team-container">
+          <div *ngFor="let team of teamsBySeason2" class="team-card">
+            <div class="team-info">
+              <img [src]="team.image_path" alt="Logo del equipo" class="equipo-logo">
+              <span class="equipo-nombre">{{ team.name }}</span>
+            </div>
+            <button (click)="verEstadisticas(team.id)" class="ver-estadisticas-btn">Ver estadísticas</button>
+          </div>
+        </div>
+        
+      </div>
+
+      <h1 class="avg-title">PROMEDIOS</h1>
+      <div class="container-avg">
+        <div class="graph-block">
+          <div class="graph-container">
+            <h1>Top 5 Equipos con Mayor Promedio de Corners Superliga de Dinamarca 2022/2023</h1>
+            <canvas id="Corners2"></canvas>
+          </div>
+        </div>
+
+        <div class="graph-block">
+          <div class="graph-container">
+            <h1>Top 5 Equipos con Mayor Promedio de Goles anotados Superliga de Dinamarca 2022/2023</h1>
+            <canvas id="GolesAnotados2"></canvas>
+          </div>
+        </div>
+
+        <div class="graph-block">
+          <div class="graph-container">
+            <h1>Promedio de Tarjetas Amarillas Superliga de Dinamarca 2022/2023</h1>
+            <canvas id="TarjetasAmarillas2"></canvas>
+          </div>
         </div>
       </div>
-      
+
+      <h1 class="avg-title">OTRAS ESTADÍSTICAS</h1>
+      <div class="container-avg">
+        <div class="graph-container">
+          <h1>Cantidad de goles Anotados de local y visita de los equipos</h1>
+          <canvas id="graficoGolesAnotados2"></canvas>
+        </div>
+
+        <div class="graph-container">
+          <h1>Cantidad de goles Concedidos de local y visita de los equipos</h1>
+          <canvas id="graficoGolesConcedidos2"></canvas>
+        </div>
+
+        <div class="graph-container">
+          <h1>Victorias de local y visita de los equipos</h1>
+          <canvas id="graficoVictorias2"></canvas>
+        </div>
+
+        <div class="graph-container">
+          <h1>Derrotas de local y visita de los equipos</h1>
+          <canvas id="graficoDerrotas2"></canvas>
+        </div>
+
+        <div class="graph-container">
+          <h1>Empates de local y visita de los equipos</h1>
+          <canvas id="graficoEmpates2"></canvas>
+        </div>
+      </div>
+
+
+      <!-------------------------------------------------------------------->
+
     </div>
     
-    <h3>Próximos partidos:</h3>
-  
-    <table class="fixture">
-      <thead>
-        <tr>
-          <th *ngIf="locationTeam1 === 'home'; else localTeam">
-            <span class="team-name">LOCAL</span>
-          </th>
-          <th>Vs</th>
-          <th *ngIf="locationTeam2 === 'visita'; else visitaTeam">
-            <span class="team-name">VISITA</span>
-          </th>
-          <th>Estadisticas</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <img src="{{ image1 }}" class="team-logo" alt="Logo Equipo 1">
-            <span class="team-text">{{ team1 }}</span>
-          </td>
-          <td class="versus">vs</td>
-          <td>
-            <img src="{{ image2 }}" class="team-logo" alt="Logo Equipo 2">
-            <span class="team-text">{{ team2 }}</span>
-          </td>
-          <td class="fecha">
-            <button class="btn btn-primary" (click)="verEstadisticasEquipos(idTeam1,idTeam2)">Ver estadisticas</button>
-          </td>
-        </tr>
-        <!-- Repetir para cada partido -->
-      </tbody>
-    </table>
-
-    
-    <h1 class="avg-title">PROMEDIOS</h1>
-
-    <div class="container-avg">
-      <div class="graph-block">
-        <div class="graph-container">
-          <h1>Top 5 Equipos con Mayor Promedio de Corners Superliga de Dinamarca 2022/2023</h1>
-          <canvas id="Corners"></canvas>
-        </div>
-      </div>
-    
-      <div class="graph-block">
-        <div class="graph-container">
-          <h1>Top 5 Equipos con Mayor Promedio de Goles anotados Superliga de Dinamarca 2022/2023</h1>
-          <canvas id="GolesAnotados"></canvas>
-        </div>
-      </div>
-    
-      <div class="graph-block">
-        <div class="graph-container">
-          <h1>Promedio de Tarjetas Amarillas Superliga de Dinamarca 2022/2023</h1>
-          <canvas id="TarjetasAmarillas"></canvas>
-        </div>
-      </div>
-    </div>
-    
-    
-
-
-  </div>
-  
-  
-  
+  </body>
   <ng-template #localTeam>
     <th> LOCAL</th>
   </ng-template>
@@ -124,6 +242,9 @@
   <ng-template #visitaTeam>
     <th> VISITA</th>
   </ng-template>
+  <!-- <footer>
+    <app-footer></app-footer>
+  </footer> -->
   
   
 

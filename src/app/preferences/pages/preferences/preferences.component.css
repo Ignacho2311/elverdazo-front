@@ -1,3 +1,6 @@
+.container{
+  margin-top: 16px;
+}
 .dropdown {
   position: relative;
 }
@@ -33,6 +36,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  background-image: url('../../../../assets/sandro-schuh-HgwY_YQ1m0w-unsplash.jpg'); /* Reemplaza 'ruta-de-la-imagen' con la ruta de tu imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .stat-card {
@@ -52,6 +59,7 @@
   color: black;
   font-size: 1rem;
   transition: background-color 0.3s ease;
+  margin-left: 90px;
 }
 
 .stat-avatar {
@@ -62,7 +70,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
 }
 
 .team-stat-icon {
@@ -141,4 +148,8 @@
 
 .team-button2:hover {
   background-color: #850d0d;
+}
+
+h1{
+  text-align: center;
 }

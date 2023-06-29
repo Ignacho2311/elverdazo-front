@@ -1,69 +1,78 @@
-      <div class="container">
-        <!-- <nav>
-          <div class="nav-wrapper green">
-            
-            <span class="brand-logo center">Verdazo</span>
-            <ul id="nav-mobile" class="center hide-on-med-and-down">
-              <li><a routerLink="/home">Home</a></li>
-              <li><a routerLink="/mypreferences">Mis preferencias</a></li>
-              <li><a routerLink="/teams">Mis equipos</a></li>
-              <li><a routerLink="/news">Noticias</a></li>
-            </ul>
-  
-          </div>
-        </nav> -->
+<div class="container">
+  <!-- <nav>
+    <div class="nav-wrapper green">
 
-        
-        <div class="team-presentation">
-          <div class="team-card">
-            <img [src]="team.image_path" alt="Imagen del equipo" class="team-image" />
-          </div>
-          <div class="team-info">
-            <h3 class="team-name">{{ team.name }}</h3>
-            <div class="team-stats">
-              <div *ngFor="let item of teamStatsByUser">
-                <ng-container *ngIf="item.type_id === 34 || item.type_id === 84 || item.type_id === 45">
-                  <div class="team-stat">
-                    <span  [ngClass]="getIconClass(item.type_id)" class="team-stat-icon"></span>
-                    Promedio de {{ translations[item.type.name] }}: {{ item.value.average }}{{ item.type_id === 45 ? '%' : '' }} 
-                  </div>
-                </ng-container>
+      <span class="brand-logo center">Verdazo</span>
+      <ul id="nav-mobile" class="center hide-on-med-and-down">
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/mypreferences">Mis preferencias</a></li>
+        <li><a routerLink="/teams">Mis equipos</a></li>
+        <li><a routerLink="/news">Noticias</a></li>
+      </ul>
+
+    </div>
+  </nav> -->
+
+
+  <div class="team-presentation">
+    <div class="team-card">
+      <img [src]="team.image_path" alt="Imagen del equipo" class="team-image" />
+    </div>
+    <div class="team-info">
+      <div class="team-stats">
+        <div class="team-stat-container">
+          <h3 class="team-name">{{ team.name }}</h3>
+          <div *ngFor="let item of teamStatsByUser">
+            <ng-container *ngIf="item.type_id === 34 || item.type_id === 84 || item.type_id === 45">
+              <div class="team-stat">
+                <span [ngClass]="getIconClass(item.type_id)" class="team-stat-icon2"></span>
+                <span class="team-stat-label">Promedio de {{ translations[item.type.name] }}:</span>
+                <span class="team-stat-value">{{ item.value.average }}{{ item.type_id === 45 ? '%' : '' }}</span>
               </div>
-              <!-- <div *ngFor="let stat of stats" >
-                <div *ngIf="stat.type_id === 52">
-                  {{stat.value.all.average}} 
-                </div>
-              </div> -->
-            </div>
+            </ng-container>
           </div>
         </div>
-
-        
-        
-        <div class="mt-4" >
-          <div  class="container" >
-            <div *ngFor="let item of teamStatsByUser" >
-              <div class="stat-card" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45)">
-                <div class="stat-avatar"></div>
-                <div class="stat-title">{{translations[item.type.name]}}</div>
-                  <div class="stat-subtitle" >
-                    {{ item.type_id === 191 ? '' : getSubtitleText(item) + ': ' + (item.type_id === 196 || item.type_id === 213 ? getCustomCount(item) : item.value.all?.count) }}
-                  </div>
-                <div >
-                  <button class="btn-show-chart" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45) && !showChartMap[item.type_id]" (click)="showChart(item, item.type_id)">Ver gráfico</button>
-                  <button class="btn-show-chart" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45) && showChartMap[item.type_id]" (click)="closeChart(item.type_id)">Cerrar gráfico</button>
-                </div>
-                <canvas [attr.id]="'myChart' + item.type_id" style="width: 100%; height: 100%;"></canvas>
-              </div>
+        <div class="poisson-container">
+          <div *ngFor="let stat of stats">
+            <div *ngIf="stat.type_id === 52" class="poisson">
+              <p class="poisson-title">Predicción Poisson</p>
+              <p class="porcentaje-label">Porcentaje de goles:</p>
+              <ul class="porcentaje-list">
+                <li *ngFor="let porcentaje of mostrarPorcentajes(stat.value.all.average, 3) let i = index" class="porcentaje-item">
+                  {{i}} : {{ porcentaje.toFixed(2) }}%
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
 
-      
-      
-      
-      
-    
-     
-   
+
+  <div class="mt-4" >
+    <div  class="container" >
+      <div *ngFor="let item of teamStatsByUser" >
+        <div class="stat-card" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45)">
+          <div class="stat-avatar">
+            <span [ngClass]="getIconClass(item.type_id)" class="team-stat-icon"></span>
+          </div>
+          <div class="stat-title">{{translations[item.type.name]}}</div>
+            <div class="stat-subtitle" >
+              {{ item.type_id === 191 ? '' : getSubtitleText(item) + ': ' + (item.type_id === 196 || item.type_id === 213 ? getCustomCount(item) : item.value.all?.count) }}
+            </div>
+          <div >
+            <button class="btn-show-chart" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45) && !showChartMap[item.type_id]" (click)="showChart(item, item.type_id)">Ver gráfico</button>
+            <button class="btn-show-chart" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45) && showChartMap[item.type_id]" (click)="closeChart(item.type_id)">Cerrar gráfico</button>
+          </div>
+          <canvas [attr.id]="'myChart' + item.type_id" style="width: 100%; height: 100%;"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>

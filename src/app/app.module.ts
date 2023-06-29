@@ -9,13 +9,13 @@ import { MatGridListModule  } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatMenuModule} from '@angular/material/menu';
-import { NavBarModule } from './nav-bar/nav-bar.module';
 import { NavBarComponent } from './nav-bar/pages/nav-bar.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,NavBarComponent
+    AppComponent,NavBarComponent, FooterComponent
   ],
   imports: [
     BrowserModule,

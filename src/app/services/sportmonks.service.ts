@@ -32,8 +32,25 @@ export class SportmonksService {
   getTeamsStatisticsBySeason():Observable<any>{
     return this._http.get<any>("api/football/teams/seasons/19686?include=statistics.details.type&filters=teamstatisticSeasons:19686")
   }
-
+ 
   getSeasonStats():Observable<any>{
     return this._http.get<any>("api/football/seasons/19686?include=statistics")
+  }
+
+   // LIGA ESCOCIA 
+  getTeamsStatisticsBySeason2():Observable<any>{
+    return this._http.get<any>("api/football/teams/seasons/19735?include=statistics.details.type&filters=teamstatisticSeasons:19735")
+  }
+
+  getTeams2():Observable<any>{
+    return this._http.get<any>("api/football/teams/seasons/19735")
+  }
+
+  getSeasonStats2():Observable<any>{
+    return this._http.get<any>("api/football/seasons/19735?include=statistics")
+  }
+
+  getTeamsById2(id:any):Observable<any>{
+    return this._http.get<any>(`api/football/teams/${id}?include=statistics.details.type&filters=teamStatisticSeasons:19735`)
   }
 }

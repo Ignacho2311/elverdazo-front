@@ -53,13 +53,28 @@ export class TeamStatisticsComponent implements OnInit {
   ngOnInit(): void {
     this.idEquipo=this.route.snapshot.params['id']
     console.log(this.idEquipo);
+
     this.sportMonksService.getTeamsById(this.idEquipo).subscribe((res:any)=>{
       this.stats= res.data.statistics[0].details
       console.log(this.stats);
-      
+      this.getInfoByTeamId(this.idEquipo)
     })
-    this.getInfoByTeamId(this.idEquipo)
+    // if(this.idEquipo===2447 || this.idEquipo===2650 || this.idEquipo===2394 || this.idEquipo===1789 || this.idEquipo===211 || this.idEquipo===1020 || this.idEquipo===2356 || this.idEquipo===939 || this.idEquipo===86 || this.idEquipo===85 || this.idEquipo===293 || this.idEquipo===2905){
+      
+    // }
+    // if(this.idEquipo===309 || this.idEquipo===180 || this.idEquipo===273 || this.idEquipo===66 || this.idEquipo===53 || this.idEquipo===258 || this.idEquipo===314 || this.idEquipo===62 || this.idEquipo===246 || this.idEquipo===282 || this.idEquipo===496 || this.idEquipo===734){
+      
+    // }
+
+    this.sportMonksService.getTeamsById2(this.idEquipo).subscribe((res:any)=>{
+      this.stats= res.data.statistics[0].details
+      console.log(this.stats);
+      this.getInfoByTeamId(this.idEquipo)
+    })
+    
+    
   }
+
   getInfoByTeamId(id:any){
     this.sportMonksService.getTeamById(id).subscribe((data:any)=>{
       this.team= data.data
