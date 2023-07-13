@@ -21,17 +21,22 @@
           <h1 class="league-title">Superliga de Dinamarca Temporada {{ nameLeague }}</h1>
           
           <div class="statistics">
+            <ul>
+              <li *ngFor="let cardStat of cardStats">
+                <p class="statistic">Total Tarjetas Amarillas: {{ cardStat.totalYellowcards }}</p>
+                <p class="statistic">Total Tarjetas Rojas: {{ cardStat.totalRedCards }}</p> 
+                <p class="statistic">Promedio Tarjetas Amarillas: {{ cardStat.AVGYellowCards }}</p>
+              </li>
+            </ul>
             <div *ngFor="let stat of cornerStats">
               <p class="statistic">Equipo con más corners: {{ stat.teamName }}  (Corners:{{stat.count}})</p>
               <!-- <p>Total: {{ stat.count }}</p> -->
               
-              <ul>
-                <li *ngFor="let cardStat of cardStats">
-                  <!-- <p>Total Tarjetas Amarillas: {{ cardStat.totalYellowcards }}</p>
-                  <p>Total Tarjetas Rojas: {{ cardStat.totalRedCards }}</p> -->
-                  <p>Promedio Tarjetas Amarillas: {{ cardStat.AVGYellowCards }}</p>
-                </li>
-              </ul>
+              
+              <div *ngFor="let stat of mostParticipant">
+                <p class="statistic">Equipo con más Goles: {{ stat.nameTeam }}  (Goles:{{stat.totalGoles}})</p>
+
+              </div>
             </div>
           </div>
         </div>

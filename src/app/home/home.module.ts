@@ -15,7 +15,6 @@ import { TeamStatistics2Component } from './pages/team-statistics2/team-statisti
     HomeAccountComponent,
     TeamStatisticsComponent,
     StatsComparisonComponent,
-    FooterComponent,
     TeamStatistics2Component
     
   ],

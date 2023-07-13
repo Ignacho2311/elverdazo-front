@@ -31,7 +31,9 @@
         <div  class="container" >
           <div *ngFor="let item of stats" >
             <div class="stat-card" *ngIf="!(item.type_id === 34 || item.type_id === 84 || item.type_id === 45 || item.type_id === 83 || item.type_id === 85) ">
-              <div class="stat-avatar"></div>
+              <div class="stat-avatar">
+                <span [ngClass]="getIconClass(item.type_id)" class="team-stat-icon2"></span>
+              </div>
               <div class="stat-title">{{translations[item.type.name]}}</div>
                 <div class="stat-subtitle" >
                   {{ item.type_id === 191 ? '' : getSubtitleText(item) + ': ' + (item.type_id === 196 || item.type_id === 213 ? getCustomCount(item) : item.value.all?.count) }}

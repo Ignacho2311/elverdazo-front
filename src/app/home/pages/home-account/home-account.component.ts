@@ -41,6 +41,7 @@ export class HomeAccountComponent implements OnInit {
   nameLeague: any;
   cornerStats!: any[];
   cardStats!: any[];
+  mostParticipant!:any[]
   viewTeam: boolean = false
   teamsBySeason:any
   teamsBySeason2:any
@@ -824,6 +825,7 @@ export class HomeAccountComponent implements OnInit {
       console.log(this.seasonStats);
       this.cornerStats = this.extractStatistics(this.seasonStats);
       this.cardStats = this.extractStatistics2(this.seasonStats);
+      this.mostParticipant = this.extractStatistics3(this.seasonStats)
       
     })
   }
@@ -877,6 +879,25 @@ export class HomeAccountComponent implements OnInit {
       }
     }
     return cardStats
+  }
+
+  extractStatistics3(statistics: any[]) {
+    const mostParticipant:any[] =[]
+
+    for (const stat of statistics) {
+      if (stat.type_id === 204 ) {
+        const totalGoles = stat.value.count;
+        const nameTeam = stat.value.participant_name
+
+      // Guarda los valores en la variable cardStats
+      mostParticipant.push({
+        totalGoles: totalGoles,
+        nameTeam: nameTeam,
+      });
+        
+      }
+    }
+    return mostParticipant
   }
 
 
