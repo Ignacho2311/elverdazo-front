@@ -1,4 +1,4 @@
 export const environment = {
     production:false,
-    baseUrl:"http://localhost:3000"
+    baseUrl:"http://getting-started-env.eba-rnhnw5ph.us-east-2.elasticbeanstalk.com/"
 }
