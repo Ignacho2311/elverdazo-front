@@ -10,7 +10,7 @@ import {environment} from 'src/environment/environment'
 export class SportmonksService {
   private baseUrl = environment.baseUrl
   // private token= '5CmvZkaC2QfE3LM0OP8c1mX1uCQrN43nbHNuLSiltjWucCjLw1CBwSDsuHd4'
-  constructor(private _http:HttpClient) { }
+  constructor(private _http:HttpClient){ }
 
 
   getTeams():Observable<any>{
