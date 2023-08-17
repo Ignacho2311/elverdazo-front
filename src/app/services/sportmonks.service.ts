@@ -14,46 +14,46 @@ export class SportmonksService {
 
 
   getTeams():Observable<any>{
-    return this._http.get<any>(`${this.baseUrl}/api/proxy/football/teams/seasons/19686`)
+    return this._http.get<any>(`${this.baseUrl}/proxy/football/teams/seasons/19686`)
   }
 
   getTeamForPreferences():Observable<any>{
-    return this._http.get<any>(`${this.baseUrl}/api/proxy/football/teams/85?include=statistics.details.type&filters=teamStatisticSeasons:19686`)
+    return this._http.get<any>(`${this.baseUrl}/proxy/football/teams/85?include=statistics.details.type&filters=teamStatisticSeasons:19686`)
   }
 
   getTeamsById(id:any):Observable<any>{
-    return this._http.get<any>(`${this.baseUrl}/api/proxy/football/teams/${id}?include=statistics.details.type&filters=teamStatisticSeasons:19686`)
+    return this._http.get<any>(`${this.baseUrl}/proxy/football/teams/${id}?include=statistics.details.type&filters=teamStatisticSeasons:19686`)
   }
 
   getTeamById(id:any):Observable<Datum>{
-    return this._http.get<Datum>(`${this.baseUrl}/api/proxy/football/teams/${id}`)
+    return this._http.get<Datum>(`${this.baseUrl}/proxy/football/teams/${id}`)
   }
 
   getFixtureByDate():Observable<any>{
-    return this._http.get<any>(`${this.baseUrl}/api/proxy/football/fixtures/date/2023-06-09?include=participants`)
+    return this._http.get<any>(`${this.baseUrl}/proxy/football/fixtures/date/2023-06-09?include=participants`)
   }
   getTeamsStatisticsBySeason():Observable<any>{
-    return this._http.get<any>(`${this.baseUrl}/api/football/teams/seasons/19686?include=statistics.details.type&filters=teamstatisticSeasons:19686`)
+    return this._http.get<any>(`${this.baseUrl}/proxy/football/teams/seasons/19686?include=statistics.details.type&filters=teamstatisticSeasons:19686`)
   }
  
   getSeasonStats():Observable<any>{
-    return this._http.get<any>(`${this.baseUrl}/api/football/seasons/19686?include=statistics`)
+    return this._http.get<any>(`${this.baseUrl}/proxy/football/seasons/19686?include=statistics`)
   }
 
    // LIGA ESCOCIA 
   getTeamsStatisticsBySeason2():Observable<any>{
-    return this._http.get<any>(`${this.baseUrl}/api/football/teams/seasons/19735?include=statistics.details.type&filters=teamstatisticSeasons:19735`)
+    return this._http.get<any>(`${this.baseUrl}/proxy/football/teams/seasons/19735?include=statistics.details.type&filters=teamstatisticSeasons:19735`)
   }
 
   getTeams2():Observable<any>{
-    return this._http.get<any>(`${this.baseUrl}/api/football/teams/seasons/19735`)
+    return this._http.get<any>(`${this.baseUrl}/proxy/football/teams/seasons/19735`)
   }
 
   getSeasonStats2():Observable<any>{
-    return this._http.get<any>(`${this.baseUrl}/api/football/seasons/19735?include=statistics`)
+    return this._http.get<any>(`${this.baseUrl}/proxy/football/seasons/19735?include=statistics`)
   }
 
   getTeamsById2(id:any):Observable<any>{
-    return this._http.get<any>(`${this.baseUrl}/api/football/teams/${id}?include=statistics.details.type&filters=teamStatisticSeasons:19735`)
+    return this._http.get<any>(`${this.baseUrl}/proxy/football/teams/${id}?include=statistics.details.type&filters=teamStatisticSeasons:19735`)
   }
 }
