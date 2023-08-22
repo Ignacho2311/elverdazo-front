@@ -24,8 +24,8 @@
   }
   .logo-img {
     max-height: 40px;
-    width: 100%;
-    margin-right:70px;
+    width: auto;
+    margin-right:58px;
   }
 }
 
