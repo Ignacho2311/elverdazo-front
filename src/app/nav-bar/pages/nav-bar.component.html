@@ -1,17 +1,30 @@
-<nav>
-  <div class="nav-wrapper ">
-    <div class="logo-container">
-      <a routerLink="/home"><img src="./../assets/logo-verdazo-sin.fondo.png" alt="" ></a>
-      
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <img src="./../assets/logo-verdazo-sin.fondo.png" alt="Logo" class="logo-img">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="this.hasUser()">
+          <a class="nav-link" routerLink="/mypreferences">Mis preferencias</a>
+        </li>
+        <li class="nav-item" *ngIf="this.hasUser()">
+          <a class="nav-link" routerLink="/teams">Mis equipos</a>
+        </li>
+        <li class="nav-item" *ngIf="this.hasUser()">
+          <button class="btn btn-danger logout-btn" (click)="logout()">Log Out</button>
+        </li>
+        <li class="nav-item" *ngIf="!this.hasUser()">
+          <a class="btn btn-success" routerLink="/auth/login">Iniciar sesión</a>
+        </li>
+        <li class="nav-item" *ngIf="!this.hasUser()">
+          <a class="btn btn-primary" routerLink="/auth/register">Registrarse</a>
+        </li>
+      </ul>
     </div>
-    <ul id="nav-mobile" class="options">
-      <!-- <li><a  routerLink="/home">Home</a></li> -->
-      <li><a *ngIf="this.hasUser();"  routerLink="/mypreferences">Mis preferencias</a></li>
-      <li><a *ngIf="this.hasUser();" routerLink="/teams">Mis equipos</a></li>
-      <li><button *ngIf="this.hasUser();"   (click)="logout()" class="btn waves-effect waves-light red logout-btn">Log Out</button>
-      <li><button *ngIf="!this.hasUser();" routerLink="/auth/login" class="btn waves-effect waves-light green logout-btn">Iniciar sesion</button>
-      <li><button *ngIf="!this.hasUser();" routerLink="/auth/register" class="btn waves-effect waves-light blue logout-btn">Registrarse</button>
-
-    </ul>
   </div>
 </nav>

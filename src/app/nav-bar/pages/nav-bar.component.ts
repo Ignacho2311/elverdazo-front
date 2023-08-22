@@ -22,6 +22,17 @@ export class NavBarComponent {
     console.log(hasUser); 
   }
   
+  menuIsOpen = false;
+
+  toggleMenu() {
+    this.menuIsOpen = !this.menuIsOpen;
+    if (this.menuIsOpen) {
+      document.body.style.overflow = 'hidden'; // Oculta el scroll del body
+    } else {
+      document.body.style.overflow = ''; // Restaura el scroll del body
+    }
+  }
+
   hasUser(): boolean {
     return this.user !== null && this.user !== undefined;
   }

@@ -1,11 +1,55 @@
+/* Asegúrate de que el navbar ocupe toda la pantalla en modo móvil */
+.navbar {
+  z-index: 1000;
+  background: linear-gradient(to left, #88a688, #359d39);
+  position: relative;
+  height: 80px;
+}
+
+/* Centra la imagen del logo verticalmente en modo móvil */
+@media (max-width: 767px) {
+  .navbar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 110px;
+  }
+
+  .navbar{
+    z-index: 1000px;
+    height: auto;
+  }
+  .logo-img {
+    max-height: 40px;
+  }
+}
+
+/* Estilos adicionales para otros tamaños de pantalla */
+.logo-img {
+  max-height: 80px;
+}
+
+.logout-btn {
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+/* .nav {
+  max-width: 1000px; 
+  margin: 0 auto;
+}
+
 .nav-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(to left, #88a688, #359d39);
-  padding: 10px 20px; /* Agrega un espacio interno para el contenido */
-
-  /* Añade un height fijo para asegurar que el NAV tenga una altura adecuada */
+  padding: 10px 20px; 
   height: 80px;
 }
 
@@ -33,15 +77,15 @@
 .options li a {
   color: #ffffff;
   text-decoration: none;
-  padding: 5px 10px; /* Agrega un espacio interno para el texto */
-  border-radius: 5px; /* Agrega bordes redondeados a los enlaces */
-  transition: background-color 0.3s ease; /* Agrega una transición suave al color de fondo */
+  padding: 5px 10px; 
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .options li a:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Cambia el color de fondo al pasar el cursor */
+  background-color: rgba(255, 255, 255, 0.2); 
 }
 
 .logout-btn {
   margin-left: 10px;
-}
+} */
